@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_edificio"
+            android:icon="@drawable/iconedificio"
+            android:title="Edificio" />
+        <item
+            android:id="@+id/nav_lab"
+            android:icon="@drawable/iconlab"
+            android:title="Laboratorios" />
+        <item
+            android:id="@+id/nav_practicas"
+            android:icon="@drawable/iconpractica"
+            android:title="Practicas" />
+        <item
+            android:id="@+id/nav_encargados"
+            android:icon="@drawable/iconencargado"
+            android:title="Encargados" />
+        <item
+            android:id="@+id/nav_usuarios"
+            android:icon="@drawable/iconusuarios"
+            android:title="Usuarios" />
+    </group>
+
+    <item android:title="Más Opciones">
+        <menu>
+            <item
+                android:id="@+id/nav_perfil"
+                android:icon="@drawable/iconperfil"
+                android:title="Perfil" />
+            <item
+                android:id="@+id/nav_cerrar"
+                android:icon="@drawable/iconcerrar"
+                android:title="Cerrar Sesión" />
+        </menu>
+    </item>
+
+</menu>
