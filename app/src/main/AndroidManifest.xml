@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+<<<<<<< HEAD
         <activity
             android:name=".Menu_Encargado"
             android:label="@string/title_activity_menu__encargado"
@@ -17,6 +18,8 @@
             android:name=".Menu_Alumno"
             android:label="@string/title_activity_menu__alumno"
             android:theme="@style/NoActionBar" />
+=======
+>>>>>>> 74d2787549c7ed7a7884d8dc031cf0fa34257614
         <activity android:name=".Perfil" />
         <activity android:name=".Usuarios" />
         <activity android:name=".Encargados" />
@@ -36,6 +39,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".BuscarLab"></activity>
     </application>
 
 </manifest>
