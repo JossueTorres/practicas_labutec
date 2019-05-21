@@ -23,19 +23,7 @@ public class fm_Encargados extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fm__encargados, container, false);
-        btnOpenDialog = view.findViewById(R.id.btnDialog_listaPracticas);
 
-        btnOpenDialog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Log.d(TAG,"mensaje"); //log de fragment
-
-                //dialog a invocar
-                fm_en_dialogListaPracticas dialog = new fm_en_dialogListaPracticas();
-                dialog.show(getFragmentManager(), "dialogListaEcargado");
-            }
-        });
         return view;
 
     }

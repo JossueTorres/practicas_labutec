@@ -30,15 +30,17 @@ public class fm_Edificios extends Fragment {
 
         btn_agregar = view.findViewById(R.id.btn_Agregar);
 
-        //Para cancelar
         btn_agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_dialogEdificio()).commit();
+
+                Log.d(TAG,"mensaje"); //log de fragment
+
+                //dialog a invocar
+                fm_dialogEdificio dialog = new fm_dialogEdificio();
+                dialog.show(getFragmentManager(), "dialogListaEdificio");
             }
         });
-
         return view;
     }
 
