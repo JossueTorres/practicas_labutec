@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Perfil">
+    tools:context=".BuscarLab">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,50 +12,35 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/edi_txt_Edficios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NOMBRE"
+            android:padding="50dp"
+            android:text="EDIFICIOS"
             android:textAlignment="center"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/edtPerfil_nombre"
+        <Spinner
+            android:id="@+id/edi_spinner_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:textAlignment="center" />
+            android:layout_margin="20dp"
+            android:layoutMode="clipBounds" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="CORREO"
+            android:padding="20dp"
+            android:text="LABORATORIO"
             android:textAlignment="center"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/edtPerfil_Correo"
+        <Spinner
+            android:id="@+id/lab_spinner_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:textAlignment="center" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/edit"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            app:backgroundTint="@color/colorUtec"
-            app:srcCompat="@android:drawable/ic_menu_edit" />
-
-
+            android:layout_margin="20dp" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
