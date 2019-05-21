@@ -1,6 +1,5 @@
 package com.example.practicaslibres;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,16 +13,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.Toast;
 
-public class MenuPrincipal extends AppCompatActivity
+public class Menu_Alumno extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-NavigationView na1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_principal);
+        setContentView(R.layout.activity_menu__alumno);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -33,11 +30,6 @@ NavigationView na1;
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-
-
-//                Intent intent = new Intent(getApplicationContext(), BuscarLab.class);
-//                startActivity(intent);
-
             }
         });
 
@@ -64,7 +56,7 @@ NavigationView na1;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_principal, menu);
+        getMenuInflater().inflate(R.menu.menu__alumno, menu);
         return true;
     }
 
@@ -88,31 +80,18 @@ NavigationView na1;
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        //Intent i = new Intent();
         FragmentManager fragmentManager = getSupportFragmentManager();
-        if (id == R.id.nav_edificio) {
-           // i = new Intent(getApplicationContext(), Edificios.class);
-            fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Edificios()).commit();
-        } else if (id == R.id.nav_lab) {
-          //  i = new Intent(getApplicationContext(), Laboratorios.class);
-        } else if (id == R.id.nav_practicas) {
-           // i = new Intent(getApplicationContext(), Practicas.class);
-            fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Practicas()).commit();
-        } else if (id == R.id.nav_encargados) {
-            //i = new Intent(getApplicationContext(), Encargados.class);
-            fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Encargados()).commit();
-        } else if (id == R.id.nav_perfil) {
-           // i = new Intent(getApplicationContext(), Perfil.class);
-        }else if (id == R.id.nav_cerrar) {
-          //  i = new Intent(getApplicationContext(), MainActivity.class);
+        if (id == R.id.nav_labprac) {
+            // Handle the camera action
+            fragmentManager.beginTransaction().replace(R.id.ContentAlumno,new fm_Permisos()).commit();
+        } else if (id == R.id.nav_a_perfil) {
+
+        } else if (id == R.id.nav_a_cerrar) {
+
         }
-        //startActivity(i);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-//    public void BuscarLab (View view){
-//        Toast.makeText(getApplicationContext(), "Buscar", Toast.LENGTH_SHORT).show();
-//    }
 }

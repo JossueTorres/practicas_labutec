@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_margin="15dp"
     android:background="@color/blanco"
-    tools:context=".fm_Encargados" >
+    tools:context=".fm_Permisos" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,24 +18,17 @@
             android:layout_height="wrap_content"
             android:background="@color/colorAccent"
             android:gravity="center"
-            android:text="Encargados"
+            android:text="Pérmisos"
             android:textColor="@color/blanco"
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/boton_redondeado"
-            android:onClick="boton"
-            android:text="Button" />
-
         <ListView
-            android:id="@+id/lv_Encargados"
+            android:id="@+id/lv_Permisos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent" />
+            android:background="@color/colorAccent"
+             />
     </LinearLayout>
 
 </FrameLayout>
