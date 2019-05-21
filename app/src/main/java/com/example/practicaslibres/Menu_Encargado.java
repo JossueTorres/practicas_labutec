@@ -84,7 +84,7 @@ public class Menu_Encargado extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (id == R.id.nav_e_laboratorios) {
             // Handle the camera action
-            fragmentManager.beginTransaction().replace(R.id.ContentEncargado,new fm_Permisos()).commit();
+            fragmentManager.beginTransaction().replace(R.id.ContentEncargado,new fm_enc_listaPracticas()).commit();
         } else if (id == R.id.nav_e_practicas) {
 
         } else if (id == R.id.nav_e_cerrar) {
