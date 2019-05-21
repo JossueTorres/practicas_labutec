@@ -2,9 +2,10 @@ package com.example.practicaslibres;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.view.View;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,15 +13,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class MenuEncargado extends AppCompatActivity
+public class Menu_Encargado extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-NavigationView na1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_encargado);
+        setContentView(R.layout.activity_menu__encargado);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -56,7 +56,7 @@ NavigationView na1;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_encargado, menu);
+        getMenuInflater().inflate(R.menu.menu__encargado, menu);
         return true;
     }
 
@@ -80,18 +80,19 @@ NavigationView na1;
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        //Intent i = new Intent();
+
         FragmentManager fragmentManager = getSupportFragmentManager();
-        if (id == R.id.nav_lab2) {
-              fragmentManager.beginTransaction().replace(R.id.mainCounten2,new fm_Edificios()).commit();
-        } else if (id == R.id.nav_mis_practicas) {
-           // i = new Intent(getApplicationContext(), Practicas.class);
-        } else if (id == R.id.nav_perfil2) {
-           // i = new Intent(getApplicationContext(), Perfil.class);
-        }else if (id == R.id.nav_cerrar2) {
-          //  i = new Intent(getApplicationContext(), MainActivity.class);
+        if (id == R.id.nav_e_laboratorios) {
+            // Handle the camera action
+            fragmentManager.beginTransaction().replace(R.id.ContentEncargado,new fm_Permisos()).commit();
+        } else if (id == R.id.nav_e_practicas) {
+
+        } else if (id == R.id.nav_e_cerrar) {
+
+        } else if (id == R.id.nav_e_perfil) {
+
         }
-        //startActivity(i);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

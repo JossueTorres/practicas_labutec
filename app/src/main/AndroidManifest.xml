@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".Menu_Encargado"
+            android:label="@string/title_activity_menu__encargado"
+            android:theme="@style/NoActionBar"></activity>
+        <activity
             android:name=".Menu_Alumno"
             android:label="@string/title_activity_menu__alumno"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar" />
         <activity android:name=".Perfil" />
         <activity android:name=".Usuarios" />
         <activity android:name=".Encargados" />

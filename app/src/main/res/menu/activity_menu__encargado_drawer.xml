@@ -5,23 +5,23 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_lab2"
-            android:icon="@drawable/iconlab"
-            android:title="Mis Laboratorios" />
+            android:id="@+id/nav_e_laboratorios"
+            android:icon="@drawable/iconedificio"
+            android:title="Laboratorio" />
         <item
-            android:id="@+id/nav_mis_practicas"
-            android:icon="@drawable/iconpractica"
+            android:id="@+id/nav_e_practicas"
+            android:icon="@drawable/iconlab"
             android:title="Practicas" />
     </group>
 
     <item android:title="Más Opciones">
         <menu>
             <item
-                android:id="@+id/nav_perfil2"
+                android:id="@+id/nav_e_perfil"
                 android:icon="@drawable/iconperfil"
                 android:title="Perfil" />
             <item
-                android:id="@+id/nav_cerrar2"
+                android:id="@+id/nav_e_cerrar"
                 android:icon="@drawable/iconcerrar"
                 android:title="Cerrar Sesión" />
         </menu>

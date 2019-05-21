@@ -2,11 +2,12 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainCounten2"
+    android:id="@+id/ContentEncargado"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blanco"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MenuEncargado"
-    tools:showIn="@layout/app_bar_menu_encargado">
+    tools:context=".Menu_Encargado"
+    tools:showIn="@layout/app_bar_menu__encargado">
 
 </android.support.constraint.ConstraintLayout>
