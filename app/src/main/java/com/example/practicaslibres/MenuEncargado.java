@@ -83,7 +83,7 @@ NavigationView na1;
         //Intent i = new Intent();
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (id == R.id.nav_lab) {
-          //    fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Edificios()).commit();
+              fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Edificios()).commit();
         } else if (id == R.id.nav_practicas) {
            // i = new Intent(getApplicationContext(), Practicas.class);
         } else if (id == R.id.nav_perfil) {
