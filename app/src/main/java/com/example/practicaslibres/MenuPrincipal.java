@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MenuPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,6 +33,11 @@ public class MenuPrincipal extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
+
+//                Intent intent = new Intent(getApplicationContext(), BuscarLab.class);
+//                startActivity(intent);
+
             }
         });
 
@@ -91,6 +97,7 @@ public class MenuPrincipal extends AppCompatActivity
           //  i = new Intent(getApplicationContext(), Laboratorios.class);
         } else if (id == R.id.nav_practicas) {
            // i = new Intent(getApplicationContext(), Practicas.class);
+            fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Practicas()).commit();
         } else if (id == R.id.nav_encargados) {
             //i = new Intent(getApplicationContext(), Encargados.class);
             fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Encargados()).commit();
@@ -106,4 +113,8 @@ public class MenuPrincipal extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+//    public void BuscarLab (View view){
+//        Toast.makeText(getApplicationContext(), "Buscar", Toast.LENGTH_SHORT).show();
+//    }
 }
