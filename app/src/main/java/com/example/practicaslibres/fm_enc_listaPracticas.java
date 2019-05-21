@@ -16,7 +16,7 @@ public class fm_enc_listaPracticas extends Fragment {
 
     //definicion de objetos y nombre a fragment(tag)
     private static final String TAG="fragmentListaPrac";
-    private Button btnOpenDialog;
+    private Button btnOpenDialog, btnBuscar, btnNuevo;
 
     //metodo creado
     @Override
@@ -27,17 +27,37 @@ public class fm_enc_listaPracticas extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_fm_enc_lista_practicas, container, false);
 
         //objetos
-        btnOpenDialog = view.findViewById(R.id.btnDialog_listaPracticas);
 
-        btnOpenDialog.setOnClickListener(new View.OnClickListener() {
+        btnBuscar = view.findViewById(R.id.btnBuscar_encListaPrac);
+        btnNuevo = view.findViewById(R.id.btnNuevo_encListaPrac);
+
+
+
+
+        //Dialog para nuevo
+        btnNuevo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Log.d(TAG,"mensaje"); //log de fragment
+                //carga log
+                Log.d(TAG,"Mostrar Nuevo"); //log de fragment
 
                 //dialog a invocar
-                fm_en_dialogListaPracticas dialog = new fm_en_dialogListaPracticas();
-                dialog.show(getFragmentManager(), "dialogListaPrac");
+                fm_enc_dialogNuevoPracticas dialog = new fm_enc_dialogNuevoPracticas();
+                dialog.show(getFragmentManager(), "dialogNuevoPrac");
+            }
+        });
+
+        //dialog para buscar
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //carga log
+                Log.d(TAG,"Mostrar Buscar"); //log de fragment
+
+                //dialog a invocar
+                fm_enc_dialogBuscarPracticas dialog = new fm_enc_dialogBuscarPracticas();
+                dialog.show(getFragmentManager(), "dialogBuscarPrac");
             }
         });
 
