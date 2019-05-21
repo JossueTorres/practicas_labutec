@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Perfil"></activity>
+        <activity
+            android:name=".Menu_Alumno"
+            android:label="@string/title_activity_menu__alumno"
+            android:theme="@style/NoActionBar"></activity>
+        <activity android:name=".Perfil" />
         <activity android:name=".Usuarios" />
         <activity android:name=".Encargados" />
         <activity android:name=".Practicas" />
@@ -18,8 +22,10 @@
         <activity
             android:name=".MenuPrincipal"
             android:label="@string/title_activity_menu_principal"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".MainActivity" android:screenOrientation="portrait">
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
