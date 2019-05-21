@@ -1,63 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/blanco"
+        android:gravity="center_horizontal|center_vertical"
         android:orientation="vertical"
         android:paddingTop="10dp"
-        android:paddingBottom="15dp">
+        android:paddingBottom="15dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="106dp">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="15dp"
             android:fontFamily="sans-serif-black"
             android:paddingBottom="5dp"
-            android:text="EDIFICIO"
+            android:text="Edificio"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textColor="@color/negro"
+            android:textSize="30sp"
             android:typeface="sans" />
 
         <EditText
             android:id="@+id/edtEdificio_codigo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:ems="10"
             android:hint="Nombre"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/negro" />
 
         <EditText
             android:id="@+id/edtEdificio_nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:ems="10"
-            android:hint="Nombre"
-            android:inputType="textPersonName" />
+            android:hint="Acronimo"
+            android:inputType="textPersonName"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/negro" />
 
-        <EditText
-            android:id="@+id/edtEdificio_descripcion"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="5dp"
-            android:ems="10"
-            android:hint="Descripcion"
-            android:inputType="textPersonName" />
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtEdificio_descripcion2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:ems="10"
+                android:hint="Filas"
+                android:inputType="textPersonName"
+                android:textColor="@color/negro"
+                android:textColorHint="@color/negro" />
+
+            <EditText
+                android:id="@+id/edtEdificio_descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:ems="10"
+                android:hint="Columnas"
+                android:inputType="textPersonName"
+                android:textColor="@color/negro"
+                android:textColorHint="@color/negro" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnEdificio_guardar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/boton_redondeado_verde"
             android:text="Guardar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnEdificio_Eliminar"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/boton_redondeado_rojo"
+                android:text="Eliminar" />
+
+            <Button
+                android:id="@+id/btnEdificio_salir"
+                android:layout_width="191dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/boton_redondeado_default"
+                android:text="Salir"
+                android:textColor="@color/negro" />
+        </LinearLayout>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

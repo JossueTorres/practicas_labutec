@@ -6,4 +6,7 @@
     <color name="colorUtec">#5D0A28</color>
     <color name="blanco">#FFFFFF</color>
     <color name="negro">#000000</color>
+    <color name="verde">#3A9012</color>
+    <color name="gris">#E3E5E2</color>
+    <color name="rojo">#BC170F</color>
 </resources>
