@@ -35,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }else if(usu.equals("encargado") && cla.equals("123")){
 
+                Intent i = new Intent(getApplicationContext(), Menu_Encargado.class);
+                startActivity(i);
+
+            }else if(usu.equals("alumno") && cla.equals("123")){
+
+                Intent i = new Intent(getApplicationContext(), Menu_Alumno.class);
+                startActivity(i);
+
             }
         }
     }
