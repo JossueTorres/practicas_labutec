@@ -5,11 +5,11 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_lab"
+            android:id="@+id/nav_lab2"
             android:icon="@drawable/iconlab"
             android:title="Mis Laboratorios" />
         <item
-            android:id="@+id/nav_practicas"
+            android:id="@+id/nav_mis_practicas"
             android:icon="@drawable/iconpractica"
             android:title="Practicas" />
     </group>
@@ -17,11 +17,11 @@
     <item android:title="Más Opciones">
         <menu>
             <item
-                android:id="@+id/nav_perfil"
+                android:id="@+id/nav_perfil2"
                 android:icon="@drawable/iconperfil"
                 android:title="Perfil" />
             <item
-                android:id="@+id/nav_cerrar"
+                android:id="@+id/nav_cerrar2"
                 android:icon="@drawable/iconcerrar"
                 android:title="Cerrar Sesión" />
         </menu>

@@ -82,13 +82,13 @@ NavigationView na1;
         int id = item.getItemId();
         //Intent i = new Intent();
         FragmentManager fragmentManager = getSupportFragmentManager();
-        if (id == R.id.nav_lab) {
-              fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Edificios()).commit();
-        } else if (id == R.id.nav_practicas) {
+        if (id == R.id.nav_lab2) {
+              fragmentManager.beginTransaction().replace(R.id.mainCounten2,new fm_Edificios()).commit();
+        } else if (id == R.id.nav_mis_practicas) {
            // i = new Intent(getApplicationContext(), Practicas.class);
-        } else if (id == R.id.nav_perfil) {
+        } else if (id == R.id.nav_perfil2) {
            // i = new Intent(getApplicationContext(), Perfil.class);
-        }else if (id == R.id.nav_cerrar) {
+        }else if (id == R.id.nav_cerrar2) {
           //  i = new Intent(getApplicationContext(), MainActivity.class);
         }
         //startActivity(i);
