@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 public class MenuPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-NavigationView na1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +95,7 @@ NavigationView na1;
             fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Edificios()).commit();
         } else if (id == R.id.nav_lab) {
           //  i = new Intent(getApplicationContext(), Laboratorios.class);
-        } else if (id == R.id.nav_practicas) {
+        } else if (id == R.id.nav_e_practicas) {  // le deje para mientras el de encargado
            // i = new Intent(getApplicationContext(), Practicas.class);
             fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Practicas()).commit();
         } else if (id == R.id.nav_encargados) {
