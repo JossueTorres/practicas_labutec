@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_margin="15dp"
     android:background="@color/blanco"
-    tools:context=".fm_Edificios" >
+    tools:context=".fm_Encargados" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,17 +18,16 @@
             android:layout_height="wrap_content"
             android:background="@color/colorAccent"
             android:gravity="center"
-            android:text="Edificios"
+            android:text="Encargados"
             android:textColor="@color/blanco"
             android:textSize="30sp"
             android:textStyle="bold" />
 
         <ListView
-            android:id="@+id/lv_Edificios"
+            android:id="@+id/lv_Encargados"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent"
-            android:onClick="ClickLv" />
+            android:background="@color/colorAccent" />
     </LinearLayout>
 
 </FrameLayout>

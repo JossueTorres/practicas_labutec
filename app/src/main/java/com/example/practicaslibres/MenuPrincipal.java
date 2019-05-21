@@ -92,7 +92,8 @@ public class MenuPrincipal extends AppCompatActivity
         } else if (id == R.id.nav_practicas) {
             i = new Intent(getApplicationContext(), Practicas.class);
         } else if (id == R.id.nav_encargados) {
-            i = new Intent(getApplicationContext(), Encargados.class);
+            //i = new Intent(getApplicationContext(), Encargados.class);
+            fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Encargados()).commit();
         } else if (id == R.id.nav_usuarios) {
             i = new Intent(getApplicationContext(), Usuarios.class);
         } else if (id == R.id.nav_perfil) {
