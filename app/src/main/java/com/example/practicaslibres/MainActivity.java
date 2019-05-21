@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
             if (usu.equals("admin") && cla.equals("123")){
                 Intent i = new Intent(getApplicationContext(), MenuPrincipal.class);
                 startActivity(i);
+            }else if(usu.equals("encargado") && cla.equals("123")){
+
             }
         }
     }
