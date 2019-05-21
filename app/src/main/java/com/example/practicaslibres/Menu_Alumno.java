@@ -1,5 +1,6 @@
 package com.example.practicaslibres;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -83,11 +84,13 @@ public class Menu_Alumno extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (id == R.id.nav_labprac) {
             // Handle the camera action
-            fragmentManager.beginTransaction().replace(R.id.ContentAlumno,new fm_Permisos()).commit();
+            fragmentManager.beginTransaction().replace(R.id.ContentAlumno,new fm_Practicas()).commit();
         } else if (id == R.id.nav_a_perfil) {
 
         } else if (id == R.id.nav_a_cerrar) {
-
+            Intent i = new Intent();
+            i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
