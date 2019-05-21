@@ -5,17 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_edificio"
-            android:icon="@drawable/iconedificio"
-            android:title="Edificio" />
-        <item
             android:id="@+id/nav_lab"
             android:icon="@drawable/iconlab"
-            android:title="Laboratorios" />
+            android:title="Mis Laboratorios" />
         <item
-            android:id="@+id/nav_encargados"
-            android:icon="@drawable/iconencargado"
-            android:title="Encargados" />
+            android:id="@+id/nav_practicas"
+            android:icon="@drawable/iconpractica"
+            android:title="Practicas" />
     </group>
 
     <item android:title="Más Opciones">

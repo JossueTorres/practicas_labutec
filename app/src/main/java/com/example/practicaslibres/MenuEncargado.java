@@ -1,12 +1,10 @@
 package com.example.practicaslibres;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,15 +12,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
+import android.view.View;
 
-public class MenuPrincipal extends AppCompatActivity
+public class MenuEncargado extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 NavigationView na1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_principal);
+        setContentView(R.layout.activity_menu_encargado);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -84,14 +82,10 @@ NavigationView na1;
         int id = item.getItemId();
         //Intent i = new Intent();
         FragmentManager fragmentManager = getSupportFragmentManager();
-        if (id == R.id.nav_edificio) {
-           // i = new Intent(getApplicationContext(), Edificios.class);
-            fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Edificios()).commit();
-        } else if (id == R.id.nav_lab) {
-          //  i = new Intent(getApplicationContext(), Laboratorios.class);
-        } else if (id == R.id.nav_encargados) {
-            //i = new Intent(getApplicationContext(), Encargados.class);
-            fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Encargados()).commit();
+        if (id == R.id.nav_lab) {
+          //    fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Edificios()).commit();
+        } else if (id == R.id.nav_practicas) {
+           // i = new Intent(getApplicationContext(), Practicas.class);
         } else if (id == R.id.nav_perfil) {
            // i = new Intent(getApplicationContext(), Perfil.class);
         }else if (id == R.id.nav_cerrar) {
