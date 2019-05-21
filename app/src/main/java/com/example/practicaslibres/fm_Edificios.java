@@ -21,9 +21,5 @@ public class fm_Edificios extends Fragment {
     }
 
 
-    public void ClickLv(View v){
-        //FragmentManager fragmentManager = getFragmentManager();
-        //fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Encargados()).commit();
-        Toast.makeText(this.getContext(), "hola", Toast.LENGTH_SHORT).show();
-    }
+
 }

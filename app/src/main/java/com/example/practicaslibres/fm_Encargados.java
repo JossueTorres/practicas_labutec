@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.Toast;
 
 
 public class fm_Encargados extends Fragment {
@@ -17,5 +17,8 @@ public class fm_Encargados extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fm__encargados, container, false);
+    }
+    public void boton (View view){
+        Toast.makeText(this.getContext(), "hola", Toast.LENGTH_SHORT).show();
     }
 }
