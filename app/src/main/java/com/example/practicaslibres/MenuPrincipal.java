@@ -82,26 +82,26 @@ public class MenuPrincipal extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Intent i = new Intent();
+        //Intent i = new Intent();
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (id == R.id.nav_edificio) {
            // i = new Intent(getApplicationContext(), Edificios.class);
             fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Edificios()).commit();
         } else if (id == R.id.nav_lab) {
-            i = new Intent(getApplicationContext(), Laboratorios.class);
+          //  i = new Intent(getApplicationContext(), Laboratorios.class);
         } else if (id == R.id.nav_practicas) {
-            i = new Intent(getApplicationContext(), Practicas.class);
+           // i = new Intent(getApplicationContext(), Practicas.class);
         } else if (id == R.id.nav_encargados) {
             //i = new Intent(getApplicationContext(), Encargados.class);
             fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Encargados()).commit();
         } else if (id == R.id.nav_usuarios) {
-            i = new Intent(getApplicationContext(), Usuarios.class);
+          //  i = new Intent(getApplicationContext(), Usuarios.class);
         } else if (id == R.id.nav_perfil) {
-            i = new Intent(getApplicationContext(), Perfil.class);
+           // i = new Intent(getApplicationContext(), Perfil.class);
         }else if (id == R.id.nav_cerrar) {
-            i = new Intent(getApplicationContext(), MainActivity.class);
+          //  i = new Intent(getApplicationContext(), MainActivity.class);
         }
-        startActivity(i);
+        //startActivity(i);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
