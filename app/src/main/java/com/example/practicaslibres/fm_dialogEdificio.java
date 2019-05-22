@@ -24,7 +24,7 @@ public class fm_dialogEdificio extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.dialog_edificos, container, false);
-
+        edt1 = view.findViewById(R.id.edt_lab_nombre);
         //objetos
         btn_guardar = view.findViewById(R.id.btnEdificio_guardar);
         btn_salir = view.findViewById(R.id.btnEdificio_salir);

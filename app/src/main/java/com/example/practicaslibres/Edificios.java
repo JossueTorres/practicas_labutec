@@ -50,9 +50,7 @@ public class Edificios extends AppCompatActivity {
         final AlertDialog.Builder mBuilder = new AlertDialog.Builder(Edificios.this);
         final View mView = getLayoutInflater().inflate(R.layout.dialog_edificos, null);
 
-        edtCodigo = mView.findViewById(R.id.edtEdificio_codigo);
         edtNombre = mView.findViewById(R.id.edtEdificio_nombre);
-        edtDescripcion = mView.findViewById(R.id.edtEdificio_descripcion);
         btnGuardar = findViewById(R.id.btnEdificio_guardar);
 
         mBuilder.setView(mView);

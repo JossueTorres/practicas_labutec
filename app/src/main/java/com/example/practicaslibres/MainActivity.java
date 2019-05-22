@@ -1,6 +1,7 @@
 package com.example.practicaslibres;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
             if (usu.equals("admin") && cla.equals("123")){
                 Intent i = new Intent(getApplicationContext(), MenuPrincipal.class);
                 startActivity(i);
+                //FragmentManager fragmentManager = getSupportFragmentManager();
+                //fragmentManager.beginTransaction().replace(R.id.mainCounten, new fm_Edificios()).commit();
             }else if(usu.equals("encargado") && cla.equals("123")){
 
                 Intent i = new Intent(getApplicationContext(), Menu_Encargado.class);

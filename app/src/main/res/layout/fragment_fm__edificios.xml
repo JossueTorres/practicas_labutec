@@ -35,6 +35,7 @@
             android:background="@drawable/boton_redondeado"
             android:padding="0dp"
             android:text="+"
+            android:textColor="@color/blanco"
             android:textSize="30sp" />
 
         <ListView
