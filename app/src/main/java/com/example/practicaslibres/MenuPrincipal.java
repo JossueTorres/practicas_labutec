@@ -95,7 +95,6 @@ public class MenuPrincipal extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Edificios()).commit();
         } else if (id == R.id.nav_lab) {
           //  i = new Intent(getApplicationContext(), Laboratorios.class);
-
         } else if (id == R.id.nav_e_practicas) {  // le deje para mientras el de encargado
            // i = new Intent(getApplicationContext(), Practicas.class);
             fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Practicas()).commit();
@@ -105,9 +104,7 @@ public class MenuPrincipal extends AppCompatActivity
         } else if (id == R.id.nav_perfil) {
            // i = new Intent(getApplicationContext(), Perfil.class);
         }else if (id == R.id.nav_cerrar) {
-            Intent i = new Intent();
-            i = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(i);
+          finish();
         }
         //startActivity(i);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
