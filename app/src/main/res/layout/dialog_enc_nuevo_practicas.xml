@@ -94,28 +94,28 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/checkBox"
+                    android:id="@+id/chkDo_encNuevoPrac"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Do" />
 
                 <CheckBox
-                    android:id="@+id/checkBox2"
+                    android:id="@+id/chkLu_encNuevoPrac"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Lu" />
 
                 <CheckBox
-                    android:id="@+id/checkBox3"
+                    android:id="@+id/chkMa_encNuevoPrac"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Ma" />
 
                 <CheckBox
-                    android:id="@+id/checkBox5"
+                    android:id="@+id/chkMi_encNuevoPrac"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -130,21 +130,21 @@
                 tools:layout_editor_absoluteY="294dp">
 
                 <CheckBox
-                    android:id="@+id/checkBox7"
+                    android:id="@+id/chkJu_encNuevoPrac"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Ju" />
 
                 <CheckBox
-                    android:id="@+id/checkBox6"
+                    android:id="@+id/chkVi_encNuevoPrac"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Vi" />
 
                 <CheckBox
-                    android:id="@+id/checkBox4"
+                    android:id="@+id/chkSa_encNuevoPrac"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
