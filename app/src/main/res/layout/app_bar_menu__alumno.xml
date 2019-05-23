@@ -29,6 +29,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:visibility="invisible"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:backgroundTint="@color/colorUtec"
+        app:srcCompat="@drawable/plusmenu" />
 
 </android.support.design.widget.CoordinatorLayout>
