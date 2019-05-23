@@ -99,7 +99,7 @@ public class MenuPrincipal extends AppCompatActivity
         if (id == R.id.nav_edificio) {
             fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Edificios()).commit();
         } else if (id == R.id.nav_lab) {
-            fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Encargados()).commit();
+            fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Laboratorios()).commit();
         } else if (id == R.id.nav_encargados) {
             fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Encargados()).commit();
         } else if (id == R.id.nav_perfil) {
