@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,7 +33,7 @@ public class fm_dialogEdificio extends DialogFragment {
     //objetos
     private EditText edtNombre, edtAcronimo;
     public TextView tvOk, tvCancel;
-    public Button btn_guardar,btn_salir,btn_eliminar;
+    public FloatingActionButton btn_guardar,btn_salir,btn_eliminar;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -96,6 +97,8 @@ public class fm_dialogEdificio extends DialogFragment {
             public void onResponse(String response) {
                 loading.dismiss();
                 Toast.makeText(getContext(), response, Toast.LENGTH_LONG).show();
+                Log.d(TAG, "Saliendo...");
+                getDialog().dismiss();
 
 
             }
@@ -105,6 +108,7 @@ public class fm_dialogEdificio extends DialogFragment {
 
                     loading.dismiss();
                     Toast.makeText(getContext(), error.toString(), Toast.LENGTH_LONG).show();
+
                     }
             })
         {

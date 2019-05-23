@@ -14,7 +14,7 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_gravity="center"
+
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorUtec"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
@@ -29,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:visibility="invisible"
         app:backgroundTint="@color/colorUtec"
         app:srcCompat="@drawable/iconbuscar" />
 

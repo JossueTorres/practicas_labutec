@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.text.style.TtsSpan;
@@ -38,7 +39,7 @@ public class fm_Edificios extends Fragment {
     private static final String TAG ="Edificios"; //nombre de fragment
 
     //objetos
-    public Button btn_agregar;
+    public FloatingActionButton btn_agregar,btn_Refrescar;
     private ListView lvEdificio;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,7 +47,8 @@ public class fm_Edificios extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_fm__edificios, container, false);
 
-        btn_agregar = view.findViewById(R.id.btn_Agregar);
+        btn_agregar = view.findViewById(R.id.fab_agregarEdf);
+        btn_Refrescar = view.findViewById(R.id.fab_RefreshEdf);
         lvEdificio = view.findViewById(R.id.lv_Edificios);
 
         obtenerEdificios_ws();
@@ -62,7 +64,12 @@ public class fm_Edificios extends Fragment {
                 dialog.show(getFragmentManager(), "dialogListaEdificio");
             }
         });
-
+        btn_Refrescar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                obtenerEdificios_ws();
+            }
+        });
 
         return view;
     }
