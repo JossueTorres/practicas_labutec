@@ -103,7 +103,7 @@ public class MenuPrincipal extends AppCompatActivity
         } else if (id == R.id.nav_encargados) {
             fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Encargados()).commit();
         } else if (id == R.id.nav_perfil) {
-
+            fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Perfil()).commit();
         }else if (id == R.id.nav_cerrar) {
             Intent i = new Intent();
             i = new Intent(getApplicationContext(), MainActivity.class);

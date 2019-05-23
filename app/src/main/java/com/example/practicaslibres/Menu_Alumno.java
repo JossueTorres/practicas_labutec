@@ -86,7 +86,7 @@ public class Menu_Alumno extends AppCompatActivity
             // Handle the camera action
             fragmentManager.beginTransaction().replace(R.id.ContentAlumno,new fm_Practicas()).commit();
         } else if (id == R.id.nav_a_perfil) {
-
+            fragmentManager.beginTransaction().replace(R.id.ContentAlumno,new fm_Perfil()).commit();
         } else if (id == R.id.nav_a_cerrar) {
             Intent i = new Intent();
             i = new Intent(getApplicationContext(), MainActivity.class);

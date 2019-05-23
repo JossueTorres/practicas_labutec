@@ -34,6 +34,33 @@
             android:textSize="30sp"
             android:typeface="sans" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnLab_administrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/verde"
+                app:srcCompat="@drawable/ic_action_pc" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnLab_encargados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="#138B79"
+                app:srcCompat="@drawable/ic_action_encargados" />
+
+
+        </LinearLayout>
+
         <android.support.design.widget.TextInputEditText
             android:id="@+id/edt_lab_nombre"
             android:layout_width="match_parent"
@@ -149,33 +176,6 @@
                 android:layout_margin="@dimen/fab_margin"
                 app:backgroundTint="@color/rojo"
                 app:srcCompat="@drawable/ic_action_delete" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btnLab_administrar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:layout_margin="@dimen/fab_margin"
-                app:backgroundTint="@color/verde"
-                app:srcCompat="@drawable/ic_action_pc" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btnLab_encargados"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:layout_margin="@dimen/fab_margin"
-                app:backgroundTint="#138B79"
-                app:srcCompat="@drawable/ic_action_encargados" />
-
 
         </LinearLayout>
 

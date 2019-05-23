@@ -93,7 +93,7 @@ public class Menu_Encargado extends AppCompatActivity
             i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_e_perfil) {
-
+            fragmentManager.beginTransaction().replace(R.id.ContentEncargado,new fm_Perfil()).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

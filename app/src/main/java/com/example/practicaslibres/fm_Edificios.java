@@ -41,7 +41,7 @@ public class fm_Edificios extends Fragment {
 
         btn_agregar = view.findViewById(R.id.fab_agregarEnc);
         btn_Refrescar = view.findViewById(R.id.fab_RefreshEnc);
-        lvEdificio = view.findViewById(R.id.lv_Edificios);
+        lvEdificio = view.findViewById(R.id.lv_Edificio);
 
         obtenerEdificios_ws();
         btn_agregar.setOnClickListener(new View.OnClickListener() {
