@@ -97,25 +97,18 @@ public class MenuPrincipal extends AppCompatActivity
         //Intent i = new Intent();
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (id == R.id.nav_edificio) {
-           // i = new Intent(getApplicationContext(), Edificios.class);
             fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Edificios()).commit();
         } else if (id == R.id.nav_lab) {
-          //  i = new Intent(getApplicationContext(), Laboratorios.class);
-
-        } else if (id == R.id.nav_e_practicas) {  // le deje para mientras el de encargado
-           // i = new Intent(getApplicationContext(), Practicas.class);
-            fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Practicas()).commit();
+            fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Encargados()).commit();
         } else if (id == R.id.nav_encargados) {
-            //i = new Intent(getApplicationContext(), Encargados.class);
             fragmentManager.beginTransaction().replace(R.id.mainCounten,new fm_Encargados()).commit();
         } else if (id == R.id.nav_perfil) {
-           // i = new Intent(getApplicationContext(), Perfil.class);
+
         }else if (id == R.id.nav_cerrar) {
             Intent i = new Intent();
             i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
         }
-        //startActivity(i);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

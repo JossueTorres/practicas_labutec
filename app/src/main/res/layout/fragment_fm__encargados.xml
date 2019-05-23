@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,32 +11,57 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="right"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/Encargados"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
+            android:layout_marginTop="10dp"
+            android:background="@color/blanco"
             android:gravity="center"
+            android:shadowColor="@color/colorPrimary"
             android:text="Encargados"
-            android:textColor="@color/blanco"
+            android:textColor="@color/colorPrimary"
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/button"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/boton_redondeado"
-            android:onClick="boton"
-            android:text="Button" />
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_RefreshEnc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/colorUtec"
+                app:srcCompat="@drawable/ic_action_refresh" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_agregarEnc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/colorUtec"
+                app:srcCompat="@drawable/plusmenu" />
+        </LinearLayout>
 
         <ListView
             android:id="@+id/lv_Encargados"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent" />
+            android:layout_margin="10dp"
+            android:background="#fafafa"
+            android:cacheColorHint="@color/negro">
+
+        </ListView>
+
     </LinearLayout>
 
 </FrameLayout>
