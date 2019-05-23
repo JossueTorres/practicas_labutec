@@ -17,7 +17,7 @@ import android.view.MenuItem;
 
 public class Menu_Alumno extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    FloatingActionButton fab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +25,7 @@ public class Menu_Alumno extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        fab = findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,7 +86,7 @@ public class Menu_Alumno extends AppCompatActivity
             // Handle the camera action
             fragmentManager.beginTransaction().replace(R.id.ContentAlumno,new fm_Practicas()).commit();
         } else if (id == R.id.nav_a_perfil) {
-            fragmentManager.beginTransaction().replace(R.id.ContentAlumno,new fm_perfil()).commit();
+
         } else if (id == R.id.nav_a_cerrar) {
             Intent i = new Intent();
             i = new Intent(getApplicationContext(), MainActivity.class);
