@@ -8,6 +8,12 @@
     android:background="@color/blanco"
     tools:context=".fm_Edificios" >
 
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="447dp"
+        android:layout_height="955dp"
+        android:src="@mipmap/fondoperfil" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,6 +33,12 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="178dp"
+            android:src="@mipmap/uteclogo" />
+
         <TextView
             android:id="@+id/tv_per_nombre"
             android:layout_width="match_parent"
@@ -34,7 +46,20 @@
             android:layout_margin="10pt"
             android:gravity="center"
             android:text="Nombre:"
+            android:textAlignment="viewStart"
             android:textColor="@color/negro"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="10pt"
+            android:text="Oscar Jossué Torres"
+            android:textAlignment="center"
+            android:textColor="#000000"
             android:textSize="24sp" />
 
         <TextView
@@ -44,7 +69,20 @@
             android:layout_margin="10pt"
             android:gravity="center"
             android:text="Tipo:"
+            android:textAlignment="viewStart"
             android:textColor="@color/negro"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_tipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="10pt"
+            android:text="Alumno"
+            android:textAlignment="center"
+            android:textColor="#000000"
             android:textSize="24sp" />
 
         <TextView
@@ -53,9 +91,22 @@
             android:layout_height="wrap_content"
             android:layout_margin="10pt"
             android:gravity="center"
-            android:text="Correo"
+            android:text="Correo:"
+            android:textAlignment="viewStart"
             android:textColor="@color/negro"
-            android:textSize="24sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_tipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10pt"
+            android:layout_marginRight="10pt"
+            android:text="2525792015@mail.utec.edu.sv"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
