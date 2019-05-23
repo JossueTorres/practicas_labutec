@@ -26,9 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class fm_Encargados extends Fragment {
+public class fm_EncargadosLab extends Fragment {
     //definicion de objetos y nombre a fragment(tag)
-    private static final String TAG ="Encargados"; //nombre de fragment
+    private static final String TAG ="EncargadosLab"; //nombre de fragment
 
     //objetos
     public FloatingActionButton btn_agregar,btn_Refrescar;
@@ -38,10 +38,10 @@ public class fm_Encargados extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_fm__encargados, container, false);
-        btn_agregar = view.findViewById(R.id.fab_agregarEnc);
-        btn_Refrescar = view.findViewById(R.id.fab_RefreshEnc);
-        lvEncargado = view.findViewById(R.id.lv_Encargados);
+        View view = inflater.inflate(R.layout.fragment_fm__encargados_lab, container, false);
+        btn_agregar = view.findViewById(R.id.fab_agregarEncLab);
+        btn_Refrescar = view.findViewById(R.id.fab_RefreshEncLab);
+        lvEncargado = view.findViewById(R.id.lv_EncargadosLab);
 
         obtenerEncargados_ws();
         btn_agregar.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +51,7 @@ public class fm_Encargados extends Fragment {
                 Log.d(TAG,"mensaje"); //log de fragment
 
                 //dialog a invocar
-                fm_dialogEncargado dialog = new fm_dialogEncargado();
+                fm_dialogEncargadoLab dialog = new fm_dialogEncargadoLab();
 
                 dialog.show(getFragmentManager(), "dialogListaEncargado");
             }

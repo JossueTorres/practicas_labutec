@@ -28,14 +28,14 @@
             android:layout_margin="15dp"
             android:fontFamily="sans-serif-black"
             android:paddingBottom="5dp"
-            android:text="Edificio"
+            android:text="Encargado"
             android:textAlignment="center"
             android:textColor="@color/colorUtec"
             android:textSize="30sp"
             android:typeface="sans" />
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edt_edf_nombre"
+            android:id="@+id/edt_enc_nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre"
@@ -45,14 +45,34 @@
             android:textColorLink="@color/blanco" />
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edt_edf_acronimo"
+            android:id="@+id/edt_enc_correo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Acronimo"
+            android:hint="Correo"
             android:inputType="text"
             android:textColor="@color/negro"
             android:textColorHint="@color/negro"
             android:textColorLink="@color/blanco" />
+
+        <EditText
+            android:id="@+id/edt_enc_clave1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/negro" />
+
+        <EditText
+            android:id="@+id/edt_enc_clave2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Confirma Contraseña"
+            android:inputType="textPassword"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/negro" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,25 +81,27 @@
             android:orientation="horizontal">
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btnEdf_salir"
+                android:id="@+id/btnEnc_salir"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:layout_margin="@dimen/fab_margin"
+                android:layout_weight="1"
                 app:backgroundTint="@color/gris"
                 app:srcCompat="@drawable/ic_action_back" />
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btnEdf_guardar"
+                android:id="@+id/btnEnc_guardar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:layout_margin="@dimen/fab_margin"
+                android:layout_weight="1"
                 app:backgroundTint="@color/design_default_color_primary"
                 app:srcCompat="@drawable/ic_action_save" />
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btnEdf_Eliminar"
+                android:id="@+id/btnEnc_Eliminar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"

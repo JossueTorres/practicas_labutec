@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="360sp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:background="@color/blanco"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
+        android:padding="15pt"
+        android:paddingTop="10dp"
+        android:paddingBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:fontFamily="sans-serif-black"
+            android:paddingBottom="5dp"
+            android:text="Laboratorio"
+            android:textAlignment="center"
+            android:textColor="@color/colorUtec"
+            android:textSize="30sp"
+            android:typeface="sans" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnLab_administrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/verde"
+                app:srcCompat="@drawable/ic_action_pc" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnLab_encargados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="#138B79"
+                app:srcCompat="@drawable/ic_action_encargados" />
+
+
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edt_lab_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:inputType="text"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/blanco" />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edt_lab_acronimo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Acronimo"
+            android:inputType="text"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/blanco" />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edt_lab_edf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Edificio"
+            android:inputType="text"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/blanco" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edt_lab_filas"
+                android:layout_width="140sp"
+                android:layout_height="wrap_content"
+                android:hint="Filas"
+                android:inputType="number|text"
+                android:textColor="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/blanco" />
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edt_lab_columnas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Columas"
+                android:inputType="number|text"
+                android:textColor="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/blanco" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edt_lab_lat"
+                android:layout_width="140sp"
+                android:layout_height="wrap_content"
+                android:hint="Latitud"
+                android:inputType="number|text"
+                android:textColor="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/blanco" />
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/edt_lab_alt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Altitud"
+                android:inputType="number|text"
+                android:textColor="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/blanco" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnLab_salir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/gris"
+                app:srcCompat="@drawable/ic_action_back" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnLab_guardar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/design_default_color_primary"
+                app:srcCompat="@drawable/ic_action_save" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnLab_Eliminar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/rojo"
+                app:srcCompat="@drawable/ic_action_delete" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -4,7 +4,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -51,7 +50,7 @@ public class Edificios extends AppCompatActivity {
         final View mView = getLayoutInflater().inflate(R.layout.dialog_edificos, null);
 
         edtNombre = mView.findViewById(R.id.edtEdificio_nombre);
-        btnGuardar = findViewById(R.id.btnEdificio_guardar);
+        btnGuardar = findViewById(R.id.btnEnc_guardar);
 
         mBuilder.setView(mView);
         final AlertDialog dialog = mBuilder.create();

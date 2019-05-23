@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,26 +25,34 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class fm_dialogEdificio extends DialogFragment {
+public class fm_dialogLaboratorio extends DialogFragment {
 
-    private static final String TAG ="dialogListaEdificio"; //nombre de fragment
+    private static final String TAG ="dialogListaLaboratorios"; //nombre de fragment
 
     //objetos
-    private EditText edtNombre, edtAcronimo;
-    public TextView tvOk, tvCancel;
-    public FloatingActionButton btn_guardar,btn_salir,btn_eliminar;
+    private EditText edtNombre, edtAcronimo,edtEdificio,edtFilas,edtColumnas,edtLat,edtAlt;
+    public FloatingActionButton btn_guardar,btn_salir,btn_eliminar,btn_administrar,btn_encargados;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.dialog_edificos, container, false);
+        View view =  inflater.inflate(R.layout.dialog_laboratorios, container, false);
 
         //objetos
-        btn_guardar = view.findViewById(R.id.btnEdf_guardar);
-        btn_salir = view.findViewById(R.id.btnEdf_salir);
-        btn_eliminar = view.findViewById(R.id.btnEdf_Eliminar);
+        btn_guardar = view.findViewById(R.id.btnLab_guardar);
+        btn_salir = view.findViewById(R.id.btnLab_salir);
+        btn_eliminar = view.findViewById(R.id.btnLab_Eliminar);
+        btn_administrar = view.findViewById(R.id.btnLab_administrar);
+        btn_encargados = view.findViewById(R.id.btnLab_encargados);
 
-        edtNombre = view.findViewById(R.id.edt_edf_nombre);
-        edtAcronimo = view.findViewById(R.id.edt_edf_acronimo);
+        edtNombre = view.findViewById(R.id.edt_lab_nombre);
+        edtAcronimo = view.findViewById(R.id.edt_lab_acronimo);
+        edtEdificio = view.findViewById(R.id.edt_lab_edf);
+        edtFilas = view.findViewById(R.id.edt_lab_filas);
+        edtColumnas = view.findViewById(R.id.edt_lab_columnas);
+        edtLat = view.findViewById(R.id.edt_lab_lat);
+        edtAlt = view.findViewById(R.id.edt_lab_alt);
+
+
 
         //Para cancelar
         btn_salir.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +82,24 @@ public class fm_dialogEdificio extends DialogFragment {
                 Log.d(TAG, "Eliminando...");
 
             }
+        });
+        //para administrar
+        btn_administrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.mainCounten, new fm_LaboratorioMaquinas()).commit();
+                getDialog().dismiss();
+            }
+        });
+        //para encargados
+        btn_encargados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.mainCounten, new fm_EncargadosLab()).commit();
+                getDialog().dismiss();
+        }
         });
 
         return view;

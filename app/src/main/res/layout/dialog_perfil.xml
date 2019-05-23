@@ -28,16 +28,17 @@
             android:layout_margin="15dp"
             android:fontFamily="sans-serif-black"
             android:paddingBottom="5dp"
-            android:text="Edificio"
+            android:text="Editar Datos"
             android:textAlignment="center"
             android:textColor="@color/colorUtec"
             android:textSize="30sp"
             android:typeface="sans" />
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edt_edf_nombre"
+            android:id="@+id/edt_per_nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5pt"
             android:hint="Nombre"
             android:inputType="text"
             android:textColor="@color/negro"
@@ -45,10 +46,22 @@
             android:textColorLink="@color/blanco" />
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/edt_edf_acronimo"
+            android:id="@+id/edt_per_clave1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Acronimo"
+            android:layout_margin="5pt"
+            android:hint="Clave Antigua"
+            android:inputType="text"
+            android:textColor="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/blanco" />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edt_per_clave2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5pt"
+            android:hint="Clave Nueva"
             android:inputType="text"
             android:textColor="@color/negro"
             android:textColorHint="@color/negro"
@@ -61,31 +74,24 @@
             android:orientation="horizontal">
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btnEdf_salir"
+                android:id="@+id/btn_permod_salir"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:layout_margin="@dimen/fab_margin"
+                android:layout_weight="1"
                 app:backgroundTint="@color/gris"
                 app:srcCompat="@drawable/ic_action_back" />
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btnEdf_guardar"
+                android:id="@+id/btn_permod_guardar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:layout_margin="@dimen/fab_margin"
+                android:layout_weight="1"
                 app:backgroundTint="@color/design_default_color_primary"
                 app:srcCompat="@drawable/ic_action_save" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/btnEdf_Eliminar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:layout_margin="@dimen/fab_margin"
-                app:backgroundTint="@color/rojo"
-                app:srcCompat="@drawable/ic_action_delete" />
 
         </LinearLayout>
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="15dp"
     android:background="@color/blanco"
-    tools:context=".fm_Encargados" >
+    tools:context=".fm_EncargadosLab" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
             android:orientation="horizontal">
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab_RefreshEnc"
+                android:id="@+id/fab_RefreshEncLab"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
@@ -30,7 +30,7 @@
                 app:srcCompat="@drawable/ic_action_refresh" />
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab_agregarEnc"
+                android:id="@+id/fab_agregarEncLab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
@@ -40,20 +40,20 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/Encargados"
+            android:id="@+id/EncLab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@color/blanco"
             android:gravity="center"
             android:shadowColor="@color/colorPrimary"
-            android:text="Encargados"
+            android:text="Encargados de Laboratorio"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
             android:textStyle="bold" />
 
         <ListView
-            android:id="@+id/lv_Encargados"
+            android:id="@+id/lv_EncargadosLab"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"

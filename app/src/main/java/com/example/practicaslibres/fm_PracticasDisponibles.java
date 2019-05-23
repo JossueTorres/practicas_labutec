@@ -26,40 +26,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class fm_Encargados extends Fragment {
-    //definicion de objetos y nombre a fragment(tag)
-    private static final String TAG ="Encargados"; //nombre de fragment
+public class fm_PracticasDisponibles extends Fragment {
+
+    private static final String TAG ="Edificios"; //nombre de fragment
 
     //objetos
-    public FloatingActionButton btn_agregar,btn_Refrescar;
-    private ListView lvEncargado;
-    //metodo creado
+    public FloatingActionButton btn_Refrescar;
+    private ListView lvPracticas;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_fm__encargados, container, false);
-        btn_agregar = view.findViewById(R.id.fab_agregarEnc);
-        btn_Refrescar = view.findViewById(R.id.fab_RefreshEnc);
-        lvEncargado = view.findViewById(R.id.lv_Encargados);
+        View view= inflater.inflate(R.layout.fragment_fm__practicas_disponibles, container, false);
 
-        obtenerEncargados_ws();
-        btn_agregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Log.d(TAG,"mensaje"); //log de fragment
+        btn_Refrescar = view.findViewById(R.id.fab_RefreshLbDis);
+        lvPracticas = view.findViewById(R.id.lv_Practicas_Disponibles);
 
-                //dialog a invocar
-                fm_dialogEncargado dialog = new fm_dialogEncargado();
-
-                dialog.show(getFragmentManager(), "dialogListaEncargado");
-            }
-        });
+        obtenerEdificios_ws();
         btn_Refrescar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                obtenerEncargados_ws();
+                obtenerEdificios_ws();
             }
         });
 
@@ -68,7 +56,7 @@ public class fm_Encargados extends Fragment {
 
 
     //consumir Servicio
-    public void obtenerEncargados_ws() {
+    public void obtenerEdificios_ws() {
 
         //url
         String GET_URL="http://104.248.185.225/practicaslab_utec/apis/admin/Edificio_api/listEdificios2";
@@ -108,7 +96,7 @@ public class fm_Encargados extends Fragment {
                 edificios.add(edf);
             }
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, edificios);
-            lvEncargado.setAdapter(adapter);
+            lvPracticas.setAdapter(adapter);
 
         } catch (Exception ex){
             Toast.makeText(getContext(), "Error al cargar la lista" + ex.getMessage(), Toast.LENGTH_LONG).show();

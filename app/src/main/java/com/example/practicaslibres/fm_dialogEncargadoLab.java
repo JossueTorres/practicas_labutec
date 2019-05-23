@@ -24,26 +24,25 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class fm_dialogEdificio extends DialogFragment {
+public class fm_dialogEncargadoLab extends DialogFragment {
 
     private static final String TAG ="dialogListaEdificio"; //nombre de fragment
 
     //objetos
-    private EditText edtNombre, edtAcronimo;
+    private EditText edtEncargado;
     public TextView tvOk, tvCancel;
     public FloatingActionButton btn_guardar,btn_salir,btn_eliminar;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.dialog_edificos, container, false);
+        View view =  inflater.inflate(R.layout.dialog_encargados_lab, container, false);
 
         //objetos
-        btn_guardar = view.findViewById(R.id.btnEdf_guardar);
-        btn_salir = view.findViewById(R.id.btnEdf_salir);
-        btn_eliminar = view.findViewById(R.id.btnEdf_Eliminar);
+        btn_guardar = view.findViewById(R.id.btnEncLab_guardar);
+        btn_salir = view.findViewById(R.id.btnEncLab_salir);
+        btn_eliminar = view.findViewById(R.id.btnEncLab_Eliminar);
 
-        edtNombre = view.findViewById(R.id.edt_edf_nombre);
-        edtAcronimo = view.findViewById(R.id.edt_edf_acronimo);
+        edtEncargado = view.findViewById(R.id.edt_enclab_encargado);
 
         //Para cancelar
         btn_salir.setOnClickListener(new View.OnClickListener() {
@@ -115,8 +114,7 @@ public class fm_dialogEdificio extends DialogFragment {
 
                 //Parametros de ws
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("txtNombre", edtNombre.getText().toString());
-                params.put("txtAcronimo", edtAcronimo.getText().toString());
+                params.put("txtNombre", edtEncargado.getText().toString());
                 return params;
             }
         };

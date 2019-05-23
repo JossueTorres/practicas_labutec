@@ -84,9 +84,9 @@ public class Menu_Alumno extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (id == R.id.nav_labprac) {
             // Handle the camera action
-            fragmentManager.beginTransaction().replace(R.id.ContentAlumno,new fm_Practicas()).commit();
+            fragmentManager.beginTransaction().replace(R.id.ContentAlumno,new fm_PracticasDisponibles()).commit();
         } else if (id == R.id.nav_a_perfil) {
-
+            fragmentManager.beginTransaction().replace(R.id.ContentAlumno,new fm_Perfil()).commit();
         } else if (id == R.id.nav_a_cerrar) {
             Intent i = new Intent();
             i = new Intent(getApplicationContext(), MainActivity.class);

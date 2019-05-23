@@ -26,42 +26,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class fm_Encargados extends Fragment {
+public class fm_LaboratorioMaquinas extends Fragment {
     //definicion de objetos y nombre a fragment(tag)
-    private static final String TAG ="Encargados"; //nombre de fragment
+    private static final String TAG ="EncargadosLab"; //nombre de fragment
 
     //objetos
-    public FloatingActionButton btn_agregar,btn_Refrescar;
-    private ListView lvEncargado;
+    private ListView lvMaquinas;
     //metodo creado
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_fm__encargados, container, false);
-        btn_agregar = view.findViewById(R.id.fab_agregarEnc);
-        btn_Refrescar = view.findViewById(R.id.fab_RefreshEnc);
-        lvEncargado = view.findViewById(R.id.lv_Encargados);
+        View view = inflater.inflate(R.layout.fragment_fm__laboratorio_maquinas, container, false);
+
+        lvMaquinas = view.findViewById(R.id.lv_LabMaq);
 
         obtenerEncargados_ws();
-        btn_agregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Log.d(TAG,"mensaje"); //log de fragment
-
-                //dialog a invocar
-                fm_dialogEncargado dialog = new fm_dialogEncargado();
-
-                dialog.show(getFragmentManager(), "dialogListaEncargado");
-            }
-        });
-        btn_Refrescar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                obtenerEncargados_ws();
-            }
-        });
 
         return view;
     }
@@ -108,7 +88,7 @@ public class fm_Encargados extends Fragment {
                 edificios.add(edf);
             }
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, edificios);
-            lvEncargado.setAdapter(adapter);
+            lvMaquinas.setAdapter(adapter);
 
         } catch (Exception ex){
             Toast.makeText(getContext(), "Error al cargar la lista" + ex.getMessage(), Toast.LENGTH_LONG).show();
