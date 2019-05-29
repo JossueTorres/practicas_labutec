@@ -6,159 +6,272 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical"
+        android:padding="35dp"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="43dp">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:shadowColor="@color/negro"
+            android:text="Configuracion de Practicas"
+            android:textColor="@color/negro"
+            android:textColorHighlight="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/negro"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="35dp">
+            android:shadowColor="@color/negro"
+            android:textColor="@color/negro"
+            android:textColorHighlight="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/negro" />
 
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="LABORATORIO X" />
+        <TextView
+            android:id="@+id/tvDesde"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:shadowColor="@color/negro"
+            android:text="Desde"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textColorHighlight="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/negro" />
 
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/edtDesde_encNuevoPrac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:shadowColor="@color/negro"
+            android:textColor="@color/negro"
+            android:textColorHighlight="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/negro" />
 
-            <TextView
-                android:id="@+id/tvDesde"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Desde"
-                android:textAlignment="center" />
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/negro"
+            android:text="Hasta"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textColorHighlight="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/negro" />
 
-            <EditText
-                android:id="@+id/edtDesde_encNuevoPrac"
-                android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/edtHasta_encNuevoPrac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:shadowColor="@color/negro"
+            android:textColor="@color/negro"
+            android:textColorHighlight="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/negro" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Laboratorio"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/negro"
+            android:text="Hora Inicio"
+            android:textColor="@color/negro"
+            android:textColorHighlight="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/negro" />
+
+        <EditText
+            android:id="@+id/edtHoraI_encNuevoPrac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:shadowColor="@color/negro"
+            android:textColor="@color/negro"
+            android:textColorHighlight="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/negro" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/negro"
+            android:text="Hora Fin"
+            android:textColor="@color/negro"
+            android:textColorHighlight="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/negro" />
+
+        <EditText
+            android:id="@+id/edtHoraF_encNuevoPrac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:shadowColor="@color/negro"
+            android:textColor="@color/negro"
+            android:textColorHighlight="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/negro" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/negro"
+            android:textColor="@color/negro"
+            android:textColorHighlight="@color/negro"
+            android:textColorHint="@color/negro"
+            android:textColorLink="@color/negro" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/chkDo_encNuevoPrac"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="date" />
+                android:layout_weight="1"
+                android:shadowColor="#000"
+                android:text="Do"
+                android:textColor="@color/negro"
+                android:textColorHighlight="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/negro" />
 
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
+            <CheckBox
+                android:id="@+id/chkLu_encNuevoPrac"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hasta"
-                android:textAlignment="center" />
+                android:layout_weight="1"
+                android:shadowColor="#000"
+                android:text="Lu"
+                android:textColor="@color/negro"
+                android:textColorHighlight="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/negro" />
 
-            <EditText
-                android:id="@+id/edtHasta_encNuevoPrac"
-                android:layout_width="match_parent"
+            <CheckBox
+                android:id="@+id/chkMa_encNuevoPrac"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="date" />
+                android:layout_weight="1"
+                android:shadowColor="#000"
+                android:text="Ma"
+                android:textColor="@color/negro"
+                android:textColorHighlight="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/negro" />
 
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="match_parent"
+            <CheckBox
+                android:id="@+id/chkMi_encNuevoPrac"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hora Inicio" />
+                android:layout_weight="1"
+                android:shadowColor="#000"
+                android:text="Mi"
+                android:textColor="@color/negro"
+                android:textColorHighlight="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/negro" />
+        </LinearLayout>
 
-            <EditText
-                android:id="@+id/edtHoraI_encNuevoPrac"
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteY="294dp">
+
+            <CheckBox
+                android:id="@+id/chkJu_encNuevoPrac"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:layout_weight="1"
+                android:text="Ju"
+                android:textColor="@color/negro"
+                android:textColorHighlight="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/negro" />
 
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="match_parent"
+            <CheckBox
+                android:id="@+id/chkVi_encNuevoPrac"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hora Fin" />
+                android:layout_weight="1"
+                android:text="Vi"
+                android:textColor="@color/negro"
+                android:textColorHighlight="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/negro" />
 
-            <EditText
-                android:id="@+id/edtHoraF_encNuevoPrac"
-                android:layout_width="match_parent"
+            <CheckBox
+                android:id="@+id/chkSa_encNuevoPrac"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:id="@+id/chkDo_encNuevoPrac"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Do" />
-
-                <CheckBox
-                    android:id="@+id/chkLu_encNuevoPrac"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Lu" />
-
-                <CheckBox
-                    android:id="@+id/chkMa_encNuevoPrac"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Ma" />
-
-                <CheckBox
-                    android:id="@+id/chkMi_encNuevoPrac"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Mi" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                tools:layout_editor_absoluteY="294dp">
-
-                <CheckBox
-                    android:id="@+id/chkJu_encNuevoPrac"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Ju" />
-
-                <CheckBox
-                    android:id="@+id/chkVi_encNuevoPrac"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Vi" />
-
-                <CheckBox
-                    android:id="@+id/chkSa_encNuevoPrac"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Sa" />
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btnGuardar_encNuevoPrac"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Guardar" />
+                android:layout_weight="1"
+                android:text="Sa"
+                android:textColor="@color/negro"
+                android:textColorHighlight="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/negro" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnSalir_encNuevoPrac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/gris"
+                app:srcCompat="@drawable/ic_action_back" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnGuardar_encNuevoPrac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:backgroundTint="@color/design_default_color_primary"
+                app:srcCompat="@drawable/ic_action_save" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.example.practicaslibres;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,7 +17,8 @@ public class fm_enc_dialogNuevoPracticas extends DialogFragment {
 
     private static final String TAG ="dialogNuevoPrac"; //nombre de fragment
 
-    Button btnAgregar;
+    public FloatingActionButton btn_guardar,btn_salir;
+
     EditText edtDesde, edtHasta, edtHoraInicio, edtHoraFin;
     CheckBox chkLu, chkMa, chkMi, chkJu, chkVi, chkSa, chkDo;
     @Nullable
@@ -25,7 +27,7 @@ public class fm_enc_dialogNuevoPracticas extends DialogFragment {
 
         View view =  inflater.inflate(R.layout.dialog_enc_nuevo_practicas, container, false);
 
-        btnAgregar = view.findViewById(R.id.btnGuardar_encNuevoPrac);
+        btn_guardar = view.findViewById(R.id.btnGuardar_encNuevoPrac);
         edtDesde = view.findViewById(R.id.edtDesde_encNuevoPrac);
         edtHasta = view.findViewById(R.id.edtHasta_encNuevoPrac);
         edtHoraInicio = view.findViewById(R.id.edtHoraI_encNuevoPrac);
@@ -40,7 +42,7 @@ public class fm_enc_dialogNuevoPracticas extends DialogFragment {
 
 
         //guardar
-        btnAgregar.setOnClickListener(new View.OnClickListener() {
+        btn_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "Guardando...");
