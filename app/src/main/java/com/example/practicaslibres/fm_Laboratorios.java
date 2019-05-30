@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -31,6 +32,8 @@ import java.util.List;
 public class fm_Laboratorios extends Fragment {
 
     private static final String TAG ="Edificios"; //nombre de fragment
+
+    Bundle bundle = new Bundle();
 
     //objetos
     public FloatingActionButton btn_agregar,btn_Refrescar;
@@ -59,6 +62,9 @@ public class fm_Laboratorios extends Fragment {
                 //dialog a invocar
                 fm_dialogLaboratorio dialog = new fm_dialogLaboratorio();
 
+                bundle.putString("proceso", "insert");
+                dialog.setArguments(bundle);
+
                 dialog.show(getFragmentManager(), "dialogListaLaboratorio");
             }
         });
@@ -70,6 +76,19 @@ public class fm_Laboratorios extends Fragment {
                 listadoLaboratoriosWS ws = new listadoLaboratoriosWS();
                 ws.execute();
 
+            }
+        });
+
+        lvLaboratorio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //dialog a invocar
+                fm_dialogLaboratorio dialog = new fm_dialogLaboratorio();
+
+                bundle.putString("proceso", "delete");
+                dialog.setArguments(bundle);
+
+                dialog.show(getFragmentManager(), "dialogListaLaboratorio");
             }
         });
 
