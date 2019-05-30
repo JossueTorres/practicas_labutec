@@ -32,18 +32,18 @@ import java.util.concurrent.Executor;
 
 public class fm_dialogEncargado extends DialogFragment {
 
-    private static final String TAG ="dialogListaEdificio"; //nombre de fragment
+    private static final String TAG = "dialogListaEdificio"; //nombre de fragment
 
     //objetos
-    private EditText edtNombre, edtCorreo,edtClave1,edtClave2;
+    private EditText edtNombre, edtCorreo, edtClave1, edtClave2;
     public TextView tvOk, tvCancel;
-    public FloatingActionButton btn_guardar,btn_salir,btn_eliminar;
+    public FloatingActionButton btn_guardar, btn_salir, btn_eliminar;
     public FirebaseAuth mAuth;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.dialog_encargados, container, false);
+        View view = inflater.inflate(R.layout.dialog_encargados, container, false);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -92,7 +92,7 @@ public class fm_dialogEncargado extends DialogFragment {
 
     //--- Metodo para consumir servicios por volley---
 
-    private void registrarEdificio_ws(){
+    private void registrarEdificio_ws() {
 
         //Cargando, barra de progreso...
         final ProgressDialog loading = ProgressDialog.show(getContext(), "Por favor espere...", "Registrando Edificio",
@@ -114,14 +114,13 @@ public class fm_dialogEncargado extends DialogFragment {
 
             }
         }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    loading.dismiss();
-                    Toast.makeText(getContext(), error.toString(), Toast.LENGTH_LONG).show();
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                loading.dismiss();
+                Toast.makeText(getContext(), error.toString(), Toast.LENGTH_LONG).show();
 
-                    }
-            })
-        {
+            }
+        }) {
             @Override
             protected Map<String, String> getParams() {
 
@@ -139,7 +138,7 @@ public class fm_dialogEncargado extends DialogFragment {
 
     }
 
-    public void registrarUsuario () {
+    public void registrarUsuario() {
 
         //Obtenemos el email y la contraseña desde las cajas de texto
         final String email = edtCorreo.getText().toString().trim();
@@ -165,10 +164,4 @@ public class fm_dialogEncargado extends DialogFragment {
                 });
 
     }
-
-
-
-
-
-
 }

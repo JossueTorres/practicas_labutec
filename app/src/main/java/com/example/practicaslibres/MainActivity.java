@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             }*/
     }
 
-    public void Loguearse(View v){
+    public void Loguearse(View v) {
         registrarUsuario();
     }
 
