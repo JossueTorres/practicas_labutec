@@ -107,5 +107,19 @@
             android:shadowRadius="@android:integer/config_longAnimTime"
             android:text="Ingresar"
             android:textColor="@color/blanco" />
+
+        <Button
+            android:id="@+id/btnLogearse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/boton_redondeado"
+            android:onClick="Loguearse"
+            android:shadowColor="@color/negro"
+            android:shadowDx="@android:integer/config_longAnimTime"
+            android:shadowDy="@android:integer/config_longAnimTime"
+            android:shadowRadius="@android:integer/config_longAnimTime"
+            android:text="Logearse"
+            android:textColor="@color/blanco" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

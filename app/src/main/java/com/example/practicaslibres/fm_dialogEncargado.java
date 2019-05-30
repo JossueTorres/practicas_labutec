@@ -20,9 +20,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Executor;
 
 public class fm_dialogEncargado extends DialogFragment {
 
@@ -32,10 +38,14 @@ public class fm_dialogEncargado extends DialogFragment {
     private EditText edtNombre, edtCorreo,edtClave1,edtClave2;
     public TextView tvOk, tvCancel;
     public FloatingActionButton btn_guardar,btn_salir,btn_eliminar;
+    public FirebaseAuth mAuth;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.dialog_encargados, container, false);
+
+        mAuth = FirebaseAuth.getInstance();
 
         //objetos
         btn_guardar = view.findViewById(R.id.btnEnc_guardar);
@@ -95,6 +105,7 @@ public class fm_dialogEncargado extends DialogFragment {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, POST_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                registrarUsuario();
                 loading.dismiss();
                 Toast.makeText(getContext(), response, Toast.LENGTH_LONG).show();
                 Log.d(TAG, "Saliendo...");
@@ -105,7 +116,6 @@ public class fm_dialogEncargado extends DialogFragment {
         }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-
                     loading.dismiss();
                     Toast.makeText(getContext(), error.toString(), Toast.LENGTH_LONG).show();
 
@@ -129,6 +139,32 @@ public class fm_dialogEncargado extends DialogFragment {
 
     }
 
+    public void registrarUsuario () {
+
+        //Obtenemos el email y la contraseña desde las cajas de texto
+        final String email = edtCorreo.getText().toString().trim();
+        final String password = edtClave1.getText().toString().trim();
+
+        //creating a new user
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener((Executor) this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        //checking if success
+                        if (task.isSuccessful()) {
+
+                            Toast.makeText(getContext(), "Se ha registrado el encargado con el email: " + edtCorreo.getText(), Toast.LENGTH_LONG).show();
+                        } else {
+                            if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                                Toast.makeText(getContext(), "Ese usuario ya existe ", Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(getContext(), "No se pudo registrar el usuario ", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    }
+                });
+
+    }
 
 
 
