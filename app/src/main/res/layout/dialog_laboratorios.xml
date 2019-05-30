@@ -81,15 +81,10 @@
             android:textColorHint="@color/negro"
             android:textColorLink="@color/blanco" />
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/edt_lab_edf"
+        <Spinner
+            android:id="@+id/sp_edificios"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Edificio"
-            android:inputType="text"
-            android:textColor="@color/negro"
-            android:textColorHint="@color/negro"
-            android:textColorLink="@color/blanco" />
+            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -1,6 +1,7 @@
 package com.example.practicaslibres;
 
 import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,6 +22,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +42,9 @@ public class fm_dialogEdificio extends DialogFragment {
     private EditText edtNombre, edtAcronimo;
     public TextView tvOk, tvCancel;
     public FloatingActionButton btn_guardar,btn_salir,btn_eliminar;
+
+    String codigo="", nombre="", acronimo="", estado="", urlPost="";
+    int progreso=0;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -45,6 +58,8 @@ public class fm_dialogEdificio extends DialogFragment {
         edtNombre = view.findViewById(R.id.edt_edf_nombre);
         edtAcronimo = view.findViewById(R.id.edt_edf_acronimo);
 
+        btn_eliminar.setVisibility(View.GONE);
+
         //Para cancelar
         btn_salir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,13 +71,17 @@ public class fm_dialogEdificio extends DialogFragment {
         });
 
 
+
+
         //para confirmar
         btn_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Log.d(TAG, "Guardando...");
-                registrarEdificio_ws();
+
+                invocarServicioRegistrar ws = new invocarServicioRegistrar();
+                ws.execute();
             }
         });
         //para eliminar
@@ -78,52 +97,114 @@ public class fm_dialogEdificio extends DialogFragment {
         return view;
     }
 
-    //--- Metodo para consumir servicios por volley---
-
-    private void registrarEdificio_ws(){
-
-        //Cargando, barra de progreso...
-        final ProgressDialog loading = ProgressDialog.show(getContext(), "Por favor espere...", "Registrando Edificio",
-                false, false);
-
-        //Url de Servicio
-        String POST_URL = "http://104.248.185.225/practicaslab_utec/apis/admin/Edificio_api/insertEdificio";
-
-        //Solicitud de cadena
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, POST_URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                loading.dismiss();
-                Toast.makeText(getContext(), response, Toast.LENGTH_LONG).show();
-                Log.d(TAG, "Saliendo...");
-                getDialog().dismiss();
 
 
+
+    //SUBCLASE  ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    //subclase para ejecutar en segundo plano la peticion ws
+    private class invocarServicioRegistrar extends AsyncTask<Void, Integer, Void> {
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            //tota la logica
+            //servicio
+
+            codigo="0";
+            estado="A";
+            nombre = edtNombre.getText().toString();
+            acronimo = edtAcronimo.getText().toString();
+
+            urlPost = "http://104.248.185.225/practicaslab_utec/Edificio/guardarDatos";
+            registrarServicio(codigo, nombre, acronimo, estado, urlPost);
+            return null;
+
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            btn_guardar.setClickable(true);
+            Toast.makeText(getContext(), "Edificio registrado exitosamente", Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        protected void onPreExecute() {
+            progreso=0;
+            btn_guardar.setClickable(true);
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+        }
+    }
+
+    //WEB SERVICES  ::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+    //web service
+    private void registrarServicio(String codigo, String nombre, String acronimo, String estado, String pUrl){
+
+        HashMap<String, String> parametros = new HashMap<String, String>();
+        parametros.put("cod", codigo);
+        parametros.put("nom", nombre);
+        parametros.put("acr", acronimo);
+        parametros.put("est", estado);
+
+        String response = "";
+        try {
+
+            URL url = new URL(pUrl);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+
+            //establecer tiempos de respuestas
+            con.setReadTimeout(15000);
+            con.setConnectTimeout(15000);
+            con.setRequestMethod("POST");
+            con.setDoInput(true);
+            con.setDoOutput(true);
+
+            OutputStream os = con.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+            writer.write(getPostDataString(parametros));
+            writer.flush();
+            writer.close();
+            os.close();
+
+            int responseCode = con.getResponseCode();
+            if(responseCode ==HttpURLConnection.HTTP_OK){
+                String line;
+                BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+                while ((line=br.readLine())!=null){
+                    response +=line;
+                }
+            }else {
+                response="";
             }
-        }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
 
-                    loading.dismiss();
-                    Toast.makeText(getContext(), error.toString(), Toast.LENGTH_LONG).show();
 
-                    }
-            })
-        {
-            @Override
-            protected Map<String, String> getParams() {
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
 
-                //Parametros de ws
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("txtNombre", edtNombre.getText().toString());
-                params.put("txtAcronimo", edtAcronimo.getText().toString());
-                return params;
-            }
-        };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(stringRequest);
+    }
 
+    //metodo para tratar la cadena que se obtiene
+    private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException {
+
+        StringBuilder result = new StringBuilder();
+        boolean first = true;
+
+        for(Map.Entry<String, String> entry : params.entrySet()) {
+
+            if(first) first=false;
+            else result.append("&");
+
+            result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+            result.append("=");
+            result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+        }
+        return result.toString();
     }
 
 

@@ -1,6 +1,7 @@
 package com.example.practicaslibres;
 
 import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -12,16 +13,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,9 +43,13 @@ public class fm_Laboratorios extends Fragment {
 
         btn_agregar = view.findViewById(R.id.fab_agregarLab);
         btn_Refrescar = view.findViewById(R.id.fab_RefreshLab);
-        lvLaboratorio = view.findViewById(R.id.lv_Laboratorios);
+        lvLaboratorio = view.findViewById(R.id.lv_Laboratorios_admin);
 
-        obtenerEdificios_ws();
+        //cargar listado
+        listadoLaboratoriosWS ws = new listadoLaboratoriosWS();
+        ws.execute();
+
+
         btn_agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +65,11 @@ public class fm_Laboratorios extends Fragment {
         btn_Refrescar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                obtenerEdificios_ws();
+
+                //cargar listado
+                listadoLaboratoriosWS ws = new listadoLaboratoriosWS();
+                ws.execute();
+
             }
         });
 
@@ -67,55 +77,94 @@ public class fm_Laboratorios extends Fragment {
     }
 
 
-    //consumir Servicio
-    public void obtenerEdificios_ws() {
 
-        //url
-        String GET_URL="http://104.248.185.225/practicaslab_utec/apis/admin/Edificio_api/listEdificios2";
-        final ProgressDialog loading = ProgressDialog.show(getContext(), "Por favor espere...", "Cargando Informacion",
-                false, false);
+    //clase asincrona para la carga de datos, peticiones en segundo plano
+    private class listadoLaboratoriosWS extends AsyncTask<String,String,String> {
+        private String resp;
+        ProgressDialog pdLoading = new ProgressDialog(getContext());
+        HttpURLConnection urlConnection;
 
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, GET_URL,
+        @Override
+        protected String doInBackground(String... strings) {
 
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        //mostrar metodo
-                        loading.dismiss();
-                        mostrarListView(response);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                loading.dismiss();
+            StringBuilder result = new StringBuilder();
+
+            try {
+
+                URL url = new URL("http://104.248.185.225/practicaslab_utec/apis/admin/Laboratorio_api/listLaboratorios2");
+                urlConnection =(HttpURLConnection)url.openConnection();
+                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
+                String line;
+
+                while ((line=reader.readLine())!=null){
+                    result.append(line);
+                }
+
+            }catch (Exception ex){
+                Toast.makeText(getContext(), "Error" + ex.getMessage(), Toast.LENGTH_LONG).show();
+            } finally {
+                urlConnection.disconnect();
             }
-        });
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(jsonObjReq);
 
-    }
+            return result.toString();
 
-    //Mostrar el servicio en listview
+        }
 
-    private void mostrarListView(JSONObject obj) {
+        @Override
+        protected void onPostExecute(String resp) {
+            //terminar de cargar
+            pdLoading.dismiss();
 
-        try {
-            List<String> edificios = new ArrayList<String>();
-            JSONArray lista = obj.optJSONArray("resp");
-            for(int i =0; i<lista.length();i++){
-                JSONObject json_data = lista.getJSONObject(i);
-                String edf = json_data.getString("edf_acronimo") + " - " + json_data.getString("edf_nombre");
-                edificios.add(edf);
-            }
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, edificios);
-            lvLaboratorio.setAdapter(adapter);
+            //validar si el json no viene vacio
+            if(resp.equals("")){
+                Toast.makeText(getContext(), "No hay registros", Toast.LENGTH_LONG).show();
+            }else
+                jsonDatos(resp);
 
-        } catch (Exception ex){
-            Toast.makeText(getContext(), "Error al cargar la lista" + ex.getMessage(), Toast.LENGTH_LONG).show();
-        }finally {
+        }
+
+        @Override
+        protected void onPreExecute() {
+            pdLoading.setMessage("\tCargando...");
+            pdLoading.setCancelable(false);
+            pdLoading.show();
+        }
+
+        @Override
+        protected void onProgressUpdate(String... values) {
 
         }
     }
+
+
+    //parseo de la respuesta json, configuracion del json
+    private void jsonDatos(String msgJson){
+
+        List<String> contes = new ArrayList<String>();
+
+        try {
+            JSONObject obj = new JSONObject(msgJson);
+            JSONArray lista =  obj.optJSONArray("resp");
+
+            for (int i=0; i<lista.length(); i++) {
+                JSONObject json_data = lista.getJSONObject(i);
+                String edf = json_data.getString("lab_acronimo") + " --- " + json_data.getString("lab_nombre");
+                contes.add(edf);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        //crear el Adapter.
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, contes);
+        //Adapter a ListView para mostrar los datos.
+        lvLaboratorio.setAdapter(adapter);
+
+    }
+
+
 
 
 

@@ -53,14 +53,12 @@
             android:textStyle="bold" />
 
         <ListView
-            android:id="@+id/lv_Edificio"
+            android:id="@+id/lvEdificios_admin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:background="#fafafa"
-            android:cacheColorHint="@color/negro">
-
-        </ListView>
+            android:cacheColorHint="@color/negro" />
 
     </LinearLayout>
 

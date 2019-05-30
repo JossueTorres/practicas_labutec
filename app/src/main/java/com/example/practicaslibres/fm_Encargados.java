@@ -71,7 +71,7 @@ public class fm_Encargados extends Fragment {
     public void obtenerEncargados_ws() {
 
         //url
-        String GET_URL="http://104.248.185.225/practicaslab_utec/apis/admin/Edificio_api/listEdificios2";
+        String GET_URL="http://104.248.185.225/practicaslab_utec/apis/admin/Edificio_api/listEdificios";
         final ProgressDialog loading = ProgressDialog.show(getContext(), "Por favor espere...", "Cargando Informacion",
                 false, false);
 
