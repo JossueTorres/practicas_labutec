@@ -1,5 +1,6 @@
 package com.example.practicaslibres;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -45,6 +46,9 @@ public class fm_dialogEdificio extends DialogFragment {
 
     String codigo="", nombre="", acronimo="", estado="", urlPost="";
     int progreso=0;
+
+    String getCode="", getNombre="", getAcronimo="", getEstado="";
+    @SuppressLint("RestrictedApi")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,7 +62,17 @@ public class fm_dialogEdificio extends DialogFragment {
         edtNombre = view.findViewById(R.id.edt_edf_nombre);
         edtAcronimo = view.findViewById(R.id.edt_edf_acronimo);
 
-        btn_eliminar.setVisibility(View.GONE);
+        //ver de que proceso viene
+        Bundle bundle = getArguments();
+        String proceso = bundle.getString("proceso", "insert");
+
+        edtNombre.setText(getCode);
+
+            if(proceso=="insert")
+                btn_eliminar.setVisibility(View.GONE);
+            else if(proceso=="delete")
+                btn_guardar.setVisibility(View.GONE);
+
 
         //Para cancelar
         btn_salir.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +104,8 @@ public class fm_dialogEdificio extends DialogFragment {
             public void onClick(View v) {
 
                 Log.d(TAG, "Eliminando...");
+
+
 
             }
         });
