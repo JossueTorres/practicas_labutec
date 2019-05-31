@@ -8,19 +8,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     EditText edtUsuario, edtClave;
+    Button btnIngresar, btnLoguearse;
     private ProgressDialog progressDialog;
-    public static FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
 
 
     @Override
@@ -32,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
         edtUsuario = findViewById(R.id.edtUsuario);
         edtClave = findViewById(R.id.edtClave);
+
+        btnIngresar = findViewById(R.id.btnIngresar);
+        btnLoguearse = findViewById(R.id.btnLogearse);
 
         progressDialog = new ProgressDialog(this);
 
@@ -139,8 +147,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         //checking if success
                         if (task.isSuccessful()) {
-                            int pos = email.indexOf("@");
-                            String user = email.substring(0, pos);
+                            //int pos = email.indexOf("@");
+                            //String user = email.substring(0, pos);
                             Toast.makeText(MainActivity.this, "Bienvenidno: " + edtUsuario.getText(), Toast.LENGTH_LONG).show();
                             Intent intencion = new Intent(getApplication(), MenuPrincipal.class);
                             startActivity(intencion);
