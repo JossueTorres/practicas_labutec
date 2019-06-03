@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "378487605725",
-    "firebase_url": "https://practicaslabutec.firebaseio.com",
-    "project_id": "practicaslabutec",
-    "storage_bucket": "practicaslabutec.appspot.com"
+    "project_number": "998271382901",
+    "firebase_url": "https://applab-9034b.firebaseio.com",
+    "project_id": "applab-9034b",
+    "storage_bucket": "applab-9034b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:378487605725:android:280c091fada132ae",
+        "mobilesdk_app_id": "1:998271382901:android:280c091fada132ae",
         "android_client_info": {
           "package_name": "com.example.practicaslibres"
         }
       },
       "oauth_client": [
         {
-          "client_id": "378487605725-04dulhr5l9807vn7parmqiu5akp3mari.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.practicaslibres",
-            "certificate_hash": "854419525f4520bea4146762e7ff6a2ea198e43b"
-          }
-        },
-        {
-          "client_id": "378487605725-iuuv58hpqigjgjf8c54q66fqmb7f7hoh.apps.googleusercontent.com",
+          "client_id": "998271382901-71kffnek4vis8fhl0c6icpjis293fnor.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDTahuq6nj9E7FqnK3Z2lD6f-hkXz9FPZg"
+          "current_key": "AIzaSyCfi4m8PDXZU7gi2P74A8act0-t_GyoAzw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "378487605725-iuuv58hpqigjgjf8c54q66fqmb7f7hoh.apps.googleusercontent.com",
+              "client_id": "998271382901-71kffnek4vis8fhl0c6icpjis293fnor.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

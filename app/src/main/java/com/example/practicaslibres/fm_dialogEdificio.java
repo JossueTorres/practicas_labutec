@@ -39,6 +39,12 @@ public class fm_dialogEdificio extends DialogFragment {
 
     private static final String TAG ="dialogListaEdificio"; //nombre de fragment
 
+    //INICIO: URL APIS --------------------------
+
+    String addEdificios_api="http://104.248.185.225/practicaslab_utec/apis/admin/Edificio_api/guardarDatos";
+
+    //FIN: URL APIS ------------------------------
+
     //objetos
     private EditText edtNombre, edtAcronimo;
     public TextView tvOk, tvCancel;
@@ -46,8 +52,6 @@ public class fm_dialogEdificio extends DialogFragment {
 
     String codigo="", nombre="", acronimo="", estado="", urlPost="";
     int progreso=0;
-
-    String getCode="", getNombre="", getAcronimo="", getEstado="";
     @SuppressLint("RestrictedApi")
     @Nullable
     @Override
@@ -62,17 +66,7 @@ public class fm_dialogEdificio extends DialogFragment {
         edtNombre = view.findViewById(R.id.edt_edf_nombre);
         edtAcronimo = view.findViewById(R.id.edt_edf_acronimo);
 
-        //ver de que proceso viene
-        Bundle bundle = getArguments();
-        String proceso = bundle.getString("proceso", "insert");
-
-        edtNombre.setText(getCode);
-
-            if(proceso=="insert")
-                btn_eliminar.setVisibility(View.GONE);
-            else if(proceso=="delete")
-                btn_guardar.setVisibility(View.GONE);
-
+        btn_eliminar.setVisibility(View.GONE);
 
         //Para cancelar
         btn_salir.setOnClickListener(new View.OnClickListener() {
@@ -105,8 +99,6 @@ public class fm_dialogEdificio extends DialogFragment {
 
                 Log.d(TAG, "Eliminando...");
 
-
-
             }
         });
 
@@ -130,7 +122,7 @@ public class fm_dialogEdificio extends DialogFragment {
             nombre = edtNombre.getText().toString();
             acronimo = edtAcronimo.getText().toString();
 
-            urlPost = "http://104.248.185.225/practicaslab_utec/Edificio/guardarDatos";
+            urlPost = addEdificios_api;
             registrarServicio(codigo, nombre, acronimo, estado, urlPost);
             return null;
 

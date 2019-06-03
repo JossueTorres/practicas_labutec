@@ -1,6 +1,5 @@
 package com.example.practicaslibres;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -52,6 +51,13 @@ public class fm_dialogLaboratorio extends DialogFragment {
 
     private static final String TAG ="dialogListaLaboratorios"; //nombre de fragment
 
+    //INICIO: URL APIS --------------------------
+
+    String addLaboratorios_api="http://104.248.185.225/practicaslab_utec/apis/admin/Laboratorio_api/guardarDatos";
+    String listadoEdificios_api="http://104.248.185.225/practicaslab_utec/apis/admin/Edificio_api/listEdificios";
+
+    //FIN: URL APIS ------------------------------
+
     private AsyncHttpClient clientAsinc;
 
     //objetos
@@ -63,8 +69,6 @@ public class fm_dialogLaboratorio extends DialogFragment {
             nombre="", acronimo="", estado="", urlPost="",
              latitud="", longitud="";
     int progreso=0;
-    @SuppressLint("RestrictedApi")
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -87,18 +91,6 @@ public class fm_dialogLaboratorio extends DialogFragment {
         edtLat = view.findViewById(R.id.edt_lab_lat);
         edtAlt = view.findViewById(R.id.edt_lab_alt);
         spEdificios = view.findViewById(R.id.sp_edificios);
-
-
-        //ver de que proceso viene
-        Bundle bundle = getArguments();
-        String proceso = bundle.getString("proceso", "insert");
-
-
-
-        if(proceso=="insert")
-            btn_eliminar.setVisibility(View.GONE);
-        else if(proceso=="delete")
-            btn_guardar.setVisibility(View.GONE);
 
         llenarSpiner();
 
@@ -175,7 +167,7 @@ public class fm_dialogLaboratorio extends DialogFragment {
 
     // SPINER ::::::::::::::::
     private void llenarSpiner(){
-        String url="http://104.248.185.225/practicaslab_utec/Edificio/Listado";
+        String url=listadoEdificios_api;
 
         clientAsinc.post(url, new AsyncHttpResponseHandler() {
             @Override
@@ -241,7 +233,7 @@ public class fm_dialogLaboratorio extends DialogFragment {
 
             latitud = edtLat.getText().toString();
             longitud = edtAlt.getText().toString();
-            urlPost = "http://104.248.185.225/practicaslab_utec/Laboratorio/guardarDatos";
+            urlPost = addLaboratorios_api;
 
             Log.i("ID2", edificio);
             registrarServicio(codigo, edificio, acronimo, fil, col, nombre, latitud, longitud, urlPost);

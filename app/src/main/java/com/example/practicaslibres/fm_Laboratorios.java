@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -33,7 +32,11 @@ public class fm_Laboratorios extends Fragment {
 
     private static final String TAG ="Edificios"; //nombre de fragment
 
-    Bundle bundle = new Bundle();
+    //INICIO: URL APIS --------------------------
+
+    String listadoLaboratorios_api="http://104.248.185.225/practicaslab_utec/apis/admin/Laboratorio_api/listLaboratorios2";
+
+    //FIN: URL APIS ------------------------------
 
     //objetos
     public FloatingActionButton btn_agregar,btn_Refrescar;
@@ -62,9 +65,6 @@ public class fm_Laboratorios extends Fragment {
                 //dialog a invocar
                 fm_dialogLaboratorio dialog = new fm_dialogLaboratorio();
 
-                bundle.putString("proceso", "insert");
-                dialog.setArguments(bundle);
-
                 dialog.show(getFragmentManager(), "dialogListaLaboratorio");
             }
         });
@@ -76,19 +76,6 @@ public class fm_Laboratorios extends Fragment {
                 listadoLaboratoriosWS ws = new listadoLaboratoriosWS();
                 ws.execute();
 
-            }
-        });
-
-        lvLaboratorio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //dialog a invocar
-                fm_dialogLaboratorio dialog = new fm_dialogLaboratorio();
-
-                bundle.putString("proceso", "delete");
-                dialog.setArguments(bundle);
-
-                dialog.show(getFragmentManager(), "dialogListaLaboratorio");
             }
         });
 
@@ -110,7 +97,7 @@ public class fm_Laboratorios extends Fragment {
 
             try {
 
-                URL url = new URL("http://104.248.185.225/practicaslab_utec/apis/admin/Laboratorio_api/listLaboratorios2");
+                URL url = new URL(listadoLaboratorios_api);
                 urlConnection =(HttpURLConnection)url.openConnection();
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
