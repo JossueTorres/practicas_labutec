@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import com.loopj.android.http.*;
 
 import org.json.JSONArray;
@@ -49,23 +51,31 @@ import cz.msebera.android.httpclient.Header;
 
 public class fm_dialogLaboratorio extends DialogFragment {
 
-    private static final String TAG ="dialogListaLaboratorios"; //nombre de fragment
+    private static final String TAG = "dialogListaLaboratorios"; //nombre de fragment
+
+    //INICIO: URL APIS --------------------------
+
+    String addLaboratorios_api = "http://104.248.185.225/practicaslab_utec/apis/admin/Laboratorio_api/guardarDatos";
+    String listadoEdificios_api = "http://104.248.185.225/practicaslab_utec/apis/admin/Edificio_api/listEdificios";
+
+    //FIN: URL APIS ------------------------------
 
     private AsyncHttpClient clientAsinc;
 
     //objetos
-    private EditText edtNombre, edtAcronimo,edtEdificio,edtFilas,edtColumnas,edtLat,edtAlt;
-    public FloatingActionButton btn_guardar,btn_salir,btn_eliminar,btn_administrar,btn_encargados;
+    private EditText edtNombre, edtAcronimo, edtEdificio, edtFilas, edtColumnas, edtLat, edtAlt;
+    public FloatingActionButton btn_guardar, btn_salir, btn_eliminar, btn_administrar, btn_encargados;
     private Spinner spEdificios;
 
-    private String codigo="", edificio="", fil="", col="",
-            nombre="", acronimo="", estado="", urlPost="",
-             latitud="", longitud="";
-    int progreso=0;
+    private String codigo = "", edificio = "", fil = "", col = "",
+            nombre = "", acronimo = "", estado = "", urlPost = "",
+            latitud = "", longitud = "";
+    int progreso = 0;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.dialog_laboratorios, container, false);
+        View view = inflater.inflate(R.layout.dialog_laboratorios, container, false);
 
         clientAsinc = new AsyncHttpClient();
 
@@ -94,7 +104,7 @@ public class fm_dialogLaboratorio extends DialogFragment {
 
                 clase_Edificio seleccion = (clase_Edificio) parent.getItemAtPosition(position);
                 //Log.d("ID: " , String.valueOf(seleccion.getCodigo()));
-                Log.i("id: " , String.valueOf(seleccion.getCodigoEdf()));
+                Log.i("id: ", String.valueOf(seleccion.getCodigoEdf()));
 
                 edificio = String.valueOf(seleccion.getCodigoEdf());
             }
@@ -121,9 +131,37 @@ public class fm_dialogLaboratorio extends DialogFragment {
             @Override
             public void onClick(View v) {
 
-                Log.d(TAG, "Guardando...");
-                invocarServicioRegistrar ws = new invocarServicioRegistrar();
-                ws.execute();
+                if (TextUtils.isEmpty(edtNombre.getText().toString().trim())) {
+                    edtNombre.setError("Campo obligatorio");
+                    edtNombre.requestFocus();
+                } else if (TextUtils.isEmpty(edtAcronimo.getText().toString().trim())) {
+                    edtAcronimo.setError("Campo obligatorio");
+                    edtAcronimo.requestFocus();
+                } else if (TextUtils.isEmpty(edtFilas.getText().toString().trim())) {
+                    edtFilas.setError("Campo obligatorio");
+                    edtFilas.requestFocus();
+                } else if (TextUtils.isEmpty(edtColumnas.getText().toString().trim())) {
+                    edtColumnas.setError("Campo obligatorio");
+                    edtColumnas.requestFocus();
+                } else if (TextUtils.isEmpty(edtLat.getText().toString().trim())) {
+                    edtLat.setError("Campo obligatorio");
+                    edtLat.requestFocus();
+                } else if (TextUtils.isEmpty(edtAlt.getText().toString().trim())) {
+                    edtAlt.setError("Campo obligatorio");
+                    edtAlt.requestFocus();
+                } else {
+
+                    Log.d(TAG, "Guardando...");
+                    invocarServicioRegistrar ws = new invocarServicioRegistrar();
+                    ws.execute();
+                    edtNombre.setText(null);
+                    edtAcronimo.setText(null);
+                    edtFilas.setText(null);
+                    edtColumnas.setText(null);
+                    edtLat.setText(null);
+                    edtAlt.setText(null);
+                    edtNombre.requestFocus();
+                }
 
             }
         });
@@ -149,24 +187,24 @@ public class fm_dialogLaboratorio extends DialogFragment {
         btn_encargados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            FragmentManager fragmentManager = getFragmentManager();
+                FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.mainCounten, new fm_EncargadosLab()).commit();
                 getDialog().dismiss();
-        }
+            }
         });
 
         return view;
     }
 
     // SPINER ::::::::::::::::
-    private void llenarSpiner(){
-        String url="http://104.248.185.225/practicaslab_utec/Edificio/Listado";
+    private void llenarSpiner() {
+        String url = listadoEdificios_api;
 
         clientAsinc.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
 
-                if(statusCode==200)
+                if (statusCode == 200)
                     cargarSpiner(new String(responseBody));
             }
 
@@ -178,15 +216,15 @@ public class fm_dialogLaboratorio extends DialogFragment {
     }
 
 
-    private void cargarSpiner(String resp){
+    private void cargarSpiner(String resp) {
 
         ArrayList<clase_Edificio> listaArr = new ArrayList<clase_Edificio>();
 
         try {
             JSONObject obj = new JSONObject(resp);
-            JSONArray lista =  obj.optJSONArray("resp");
+            JSONArray lista = obj.optJSONArray("resp");
 
-            for (int i=0; i<lista.length(); i++) {
+            for (int i = 0; i < lista.length(); i++) {
                 JSONObject json_data = lista.getJSONObject(i);
 
                 clase_Edificio edf = new clase_Edificio();
@@ -206,7 +244,6 @@ public class fm_dialogLaboratorio extends DialogFragment {
     }
 
 
-
     //SUBCLASE  ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
     //subclase para ejecutar en segundo plano la peticion ws
@@ -217,8 +254,8 @@ public class fm_dialogLaboratorio extends DialogFragment {
             //servicio
 
             clase_Edificio edf = new clase_Edificio();
-            codigo="0";
-            estado="A";
+            codigo = "0";
+            estado = "A";
             nombre = edtNombre.getText().toString();
             acronimo = edtAcronimo.getText().toString();
             fil = edtFilas.getText().toString();
@@ -226,7 +263,7 @@ public class fm_dialogLaboratorio extends DialogFragment {
 
             latitud = edtLat.getText().toString();
             longitud = edtAlt.getText().toString();
-            urlPost = "http://104.248.185.225/practicaslab_utec/Laboratorio/guardarDatos";
+            urlPost = addLaboratorios_api;
 
             Log.i("ID2", edificio);
             registrarServicio(codigo, edificio, acronimo, fil, col, nombre, latitud, longitud, urlPost);
@@ -242,7 +279,7 @@ public class fm_dialogLaboratorio extends DialogFragment {
 
         @Override
         protected void onPreExecute() {
-            progreso=0;
+            progreso = 0;
             btn_guardar.setClickable(true);
         }
 
@@ -255,7 +292,7 @@ public class fm_dialogLaboratorio extends DialogFragment {
 //WEB SERVICES  ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
     //web service
-    private void registrarServicio(String cod, String edi, String acr, String fil, String col, String nom, String lat, String lon,  String pUrl){
+    private void registrarServicio(String cod, String edi, String acr, String fil, String col, String nom, String lat, String lon, String pUrl) {
 
         HashMap<String, String> parametros = new HashMap<String, String>();
         parametros.put("cod", cod);
@@ -289,25 +326,24 @@ public class fm_dialogLaboratorio extends DialogFragment {
             os.close();
 
             int responseCode = con.getResponseCode();
-            if(responseCode ==HttpURLConnection.HTTP_OK){
+            if (responseCode == HttpURLConnection.HTTP_OK) {
                 String line;
                 BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-                while ((line=br.readLine())!=null){
-                    response +=line;
+                while ((line = br.readLine()) != null) {
+                    response += line;
                 }
-            }else {
-                response="";
+            } else {
+                response = "";
             }
 
 
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
 
 
     }
-
 
 
     //metodo para tratar la cadena que se obtiene
@@ -316,9 +352,9 @@ public class fm_dialogLaboratorio extends DialogFragment {
         StringBuilder result = new StringBuilder();
         boolean first = true;
 
-        for(Map.Entry<String, String> entry : params.entrySet()) {
+        for (Map.Entry<String, String> entry : params.entrySet()) {
 
-            if(first) first=false;
+            if (first) first = false;
             else result.append("&");
 
             result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
@@ -327,8 +363,6 @@ public class fm_dialogLaboratorio extends DialogFragment {
         }
         return result.toString();
     }
-
-
 
 
 }

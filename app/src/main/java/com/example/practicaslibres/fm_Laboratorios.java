@@ -32,6 +32,12 @@ public class fm_Laboratorios extends Fragment {
 
     private static final String TAG ="Edificios"; //nombre de fragment
 
+    //INICIO: URL APIS --------------------------
+
+    String listadoLaboratorios_api="http://104.248.185.225/practicaslab_utec/apis/admin/Laboratorio_api/listLaboratorios2";
+
+    //FIN: URL APIS ------------------------------
+
     //objetos
     public FloatingActionButton btn_agregar,btn_Refrescar;
     private ListView lvLaboratorio;
@@ -91,7 +97,7 @@ public class fm_Laboratorios extends Fragment {
 
             try {
 
-                URL url = new URL("http://104.248.185.225/practicaslab_utec/apis/admin/Laboratorio_api/listLaboratorios2");
+                URL url = new URL(listadoLaboratorios_api);
                 urlConnection =(HttpURLConnection)url.openConnection();
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));

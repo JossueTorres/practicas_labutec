@@ -43,7 +43,7 @@ public class fm_Encargados extends Fragment {
         btn_Refrescar = view.findViewById(R.id.fab_RefreshEnc);
         lvEncargado = view.findViewById(R.id.lv_Encargados);
 
-        obtenerEncargados_ws();
+
         btn_agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +59,7 @@ public class fm_Encargados extends Fragment {
         btn_Refrescar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                obtenerEncargados_ws();
+
             }
         });
 
@@ -67,55 +67,7 @@ public class fm_Encargados extends Fragment {
     }
 
 
-    //consumir Servicio
-    public void obtenerEncargados_ws() {
 
-        //url
-        String GET_URL="http://104.248.185.225/practicaslab_utec/apis/admin/Edificio_api/listEdificios";
-        final ProgressDialog loading = ProgressDialog.show(getContext(), "Por favor espere...", "Cargando Informacion",
-                false, false);
-
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, GET_URL,
-
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        //mostrar metodo
-                        loading.dismiss();
-                        mostrarListView(response);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                loading.dismiss();
-            }
-        });
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        requestQueue.add(jsonObjReq);
-
-    }
-
-    //Mostrar el servicio en listview
-
-    private void mostrarListView(JSONObject obj) {
-
-        try {
-            List<String> edificios = new ArrayList<String>();
-            JSONArray lista = obj.optJSONArray("resp");
-            for(int i =0; i<lista.length();i++){
-                JSONObject json_data = lista.getJSONObject(i);
-                String edf = json_data.getString("edf_acronimo") + " - " + json_data.getString("edf_nombre");
-                edificios.add(edf);
-            }
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, edificios);
-            lvEncargado.setAdapter(adapter);
-
-        } catch (Exception ex){
-            Toast.makeText(getContext(), "Error al cargar la lista" + ex.getMessage(), Toast.LENGTH_LONG).show();
-        }finally {
-
-        }
-    }
 
 
 

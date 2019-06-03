@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,16 +27,17 @@ import java.util.Map;
 
 public class fm_dialogEncargadoLab extends DialogFragment {
 
-    private static final String TAG ="dialogListaEdificio"; //nombre de fragment
+    private static final String TAG = "dialogListaEdificio"; //nombre de fragment
 
     //objetos
     private EditText edtEncargado;
     public TextView tvOk, tvCancel;
-    public FloatingActionButton btn_guardar,btn_salir,btn_eliminar;
+    public FloatingActionButton btn_guardar, btn_salir, btn_eliminar;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.dialog_encargados_lab, container, false);
+        View view = inflater.inflate(R.layout.dialog_encargados_lab, container, false);
 
         //objetos
         btn_guardar = view.findViewById(R.id.btnEncLab_guardar);
@@ -48,9 +50,16 @@ public class fm_dialogEncargadoLab extends DialogFragment {
         btn_salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (TextUtils.isEmpty(edtEncargado.getText().toString().trim())) {
+                    edtEncargado.setError("Campo obligatorio");
+                    edtEncargado.requestFocus();
+                } else {
 
-                Log.d(TAG, "Saliendo...");
-                getDialog().dismiss();
+                    Log.d(TAG, "Saliendo...");
+                    getDialog().dismiss();
+                    edtEncargado.setText(null);
+                    edtEncargado.requestFocus();
+                }
             }
         });
 
@@ -79,7 +88,7 @@ public class fm_dialogEncargadoLab extends DialogFragment {
 
     //--- Metodo para consumir servicios por volley---
 
-    private void registrarEdificio_ws(){
+    private void registrarEdificio_ws() {
 
         //Cargando, barra de progreso...
         final ProgressDialog loading = ProgressDialog.show(getContext(), "Por favor espere...", "Registrando Edificio",
@@ -100,15 +109,14 @@ public class fm_dialogEncargadoLab extends DialogFragment {
 
             }
         }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
+            @Override
+            public void onErrorResponse(VolleyError error) {
 
-                    loading.dismiss();
-                    Toast.makeText(getContext(), error.toString(), Toast.LENGTH_LONG).show();
+                loading.dismiss();
+                Toast.makeText(getContext(), error.toString(), Toast.LENGTH_LONG).show();
 
-                    }
-            })
-        {
+            }
+        }) {
             @Override
             protected Map<String, String> getParams() {
 
@@ -123,11 +131,6 @@ public class fm_dialogEncargadoLab extends DialogFragment {
         requestQueue.add(stringRequest);
 
     }
-
-
-
-
-
 
 
 }

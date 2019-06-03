@@ -41,8 +41,13 @@ public class fm_Edificios extends Fragment {
 
     private static final String TAG ="Edificios"; //nombre de fragment
     int progreso=0;
-    String codEdificio="";
-    Bundle bundle = new Bundle();
+
+
+    //INICIO: URL APIS --------------------------
+
+        String listadoEdificios_api="http://104.248.185.225/practicaslab_utec/apis/admin/Edificio_api/listEdificios2";
+
+    //FIN: URL APIS ------------------------------
 
     //objetos
     public FloatingActionButton btn_agregar,btn_Refrescar;
@@ -70,9 +75,6 @@ public class fm_Edificios extends Fragment {
                 //dialog a invocar
                 fm_dialogEdificio dialog = new fm_dialogEdificio();
 
-                bundle.putString("proceso", "insert");
-                dialog.setArguments(bundle);
-
                 dialog.show(getFragmentManager(), "dialogListaEdificio");
             }
         });
@@ -92,15 +94,6 @@ public class fm_Edificios extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
-                //dialog a invocar
-                fm_dialogEdificio dialog = new fm_dialogEdificio();
-
-                bundle.putString("proceso", "delete");
-                bundle.putString("codEdificio", codEdificio);
-                dialog.setArguments(bundle);
-
-                dialog.show(getFragmentManager(), "dialogListaEdificio");
             }
         });
 
@@ -121,7 +114,7 @@ public class fm_Edificios extends Fragment {
 
             try {
 
-                URL url = new URL("http://104.248.185.225/practicaslab_utec/apis/admin/Edificio_api/listEdificios2");
+                URL url = new URL(listadoEdificios_api);
                 urlConnection =(HttpURLConnection)url.openConnection();
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
@@ -171,8 +164,6 @@ public class fm_Edificios extends Fragment {
     //parseo de la respuesta json
     private void jsonDatos(String msgJson){
 
-        ArrayList<clase_Edificio> listaArr = new ArrayList<clase_Edificio>();
-
         List<String> contes = new ArrayList<String>();
 
         try {
@@ -182,12 +173,6 @@ public class fm_Edificios extends Fragment {
             for (int i=0; i<lista.length(); i++) {
                 JSONObject json_data = lista.getJSONObject(i);
                 String edf = json_data.getString("edf_acronimo") + " - " + json_data.getString("edf_nombre");
-
-                clase_Edificio objEdf = new clase_Edificio();
-                objEdf.setCodigoEdf(Integer.valueOf(json_data.getString("edf_codigo")));
-
-                listaArr.add(objEdf);
-
                 contes.add(edf);
             }
         } catch (JSONException e) {
