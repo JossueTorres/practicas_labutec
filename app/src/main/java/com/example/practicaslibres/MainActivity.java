@@ -1,5 +1,6 @@
 package com.example.practicaslibres;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
@@ -93,16 +94,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void obtenerRolUsuario(String id){
+    public void obtenerRolUsuario(String idUser){
 
-        //buscamos en el nodo
-        DatabaseReference mData2 = mDatabase.child(id);
+
+
+        //buscamos en el nodo el userID
+        DatabaseReference mData2 = mDatabase.child(idUser);
 
         eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                 String rol = (dataSnapshot.child("rol").getValue().toString().trim());
-                Log.d("rol", rol);
+
+                String rol = (dataSnapshot.child("rol").getValue().toString().trim());
+                //Log.d("rol", rol);
 
                 if(rol.equals("admin")){
                     Intent i = new Intent(getApplicationContext(), MenuPrincipal.class);
@@ -114,13 +118,16 @@ public class MainActivity extends AppCompatActivity {
                     Intent i = new Intent(getApplicationContext(), Menu_Alumno.class);
                     startActivity(i);
                 }
+                else
+                    Toast.makeText(getApplicationContext(), "Error al ingresar. Comuniquese con soporte tecnico" , Toast.LENGTH_LONG).show();
+
 
                 //Toast.makeText(getApplicationContext(), "Rol:" + rol , Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+     
             }
         };
 
