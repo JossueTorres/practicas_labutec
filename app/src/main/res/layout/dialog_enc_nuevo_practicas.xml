@@ -11,9 +11,10 @@
         android:layout_height="wrap_content"
         android:background="#fff"
         android:orientation="vertical"
-        android:padding="35dp"
+        android:padding="10dp"
         tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="43dp">
+        tools:layout_editor_absoluteY="43dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/textView10"
@@ -26,120 +27,109 @@
             android:textColorHighlight="@color/negro"
             android:textColorHint="@color/negro"
             android:textColorLink="@color/negro"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            />
 
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:shadowColor="@color/negro"
-            android:textColor="@color/negro"
-            android:textColorHighlight="@color/negro"
-            android:textColorHint="@color/negro"
-            android:textColorLink="@color/negro" />
-
-        <TextView
-            android:id="@+id/tvDesde"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:shadowColor="@color/negro"
-            android:text="Desde"
-            android:textAlignment="center"
-            android:textColor="@color/negro"
-            android:textColorHighlight="@color/negro"
-            android:textColorHint="@color/negro"
-            android:textColorLink="@color/negro" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/edtDesde_encNuevoPrac"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date"
-            android:shadowColor="@color/negro"
-            android:textColor="@color/negro"
-            android:textColorHighlight="@color/negro"
-            android:textColorHint="@color/negro"
-            android:textColorLink="@color/negro" />
+            <Button
+                android:id="@+id/btnDesdeNuevaPrac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="desde" />
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:shadowColor="@color/negro"
-            android:text="Hasta"
-            android:textAlignment="center"
-            android:textColor="@color/negro"
-            android:textColorHighlight="@color/negro"
-            android:textColorHint="@color/negro"
-            android:textColorLink="@color/negro" />
+            <EditText
+                android:id="@+id/edtDesde_encNuevoPrac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="date"
+                android:shadowColor="@color/negro"
+                android:textColor="@color/negro"
+                android:textColorHighlight="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/negro" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/edtHasta_encNuevoPrac"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date"
-            android:shadowColor="@color/negro"
-            android:textColor="@color/negro"
-            android:textColorHighlight="@color/negro"
-            android:textColorHint="@color/negro"
-            android:textColorLink="@color/negro" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Laboratorio"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            <Button
+                android:id="@+id/btnHastaNuevaPrac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hasta" />
 
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:shadowColor="@color/negro"
-            android:text="Hora Inicio"
-            android:textColor="@color/negro"
-            android:textColorHighlight="@color/negro"
-            android:textColorHint="@color/negro"
-            android:textColorLink="@color/negro" />
+            <EditText
+                android:id="@+id/edtHasta_encNuevoPrac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="date"
+                android:shadowColor="@color/negro"
+                android:textColor="@color/negro"
+                android:textColorHighlight="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/negro" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/edtHoraI_encNuevoPrac"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:shadowColor="@color/negro"
-            android:textColor="@color/negro"
-            android:textColorHighlight="@color/negro"
-            android:textColorHint="@color/negro"
-            android:textColorLink="@color/negro" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:shadowColor="@color/negro"
-            android:text="Hora Fin"
-            android:textColor="@color/negro"
-            android:textColorHighlight="@color/negro"
-            android:textColorHint="@color/negro"
-            android:textColorLink="@color/negro" />
+            <Button
+                android:id="@+id/btnHoraInicioNuevaPrac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hora de inicio" />
 
-        <EditText
-            android:id="@+id/edtHoraF_encNuevoPrac"
+            <EditText
+                android:id="@+id/edtHoraI_encNuevoPrac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                android:shadowColor="@color/negro"
+                android:textColor="@color/negro"
+                android:textColorHighlight="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/negro" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:shadowColor="@color/negro"
-            android:textColor="@color/negro"
-            android:textColorHighlight="@color/negro"
-            android:textColorHint="@color/negro"
-            android:textColorLink="@color/negro" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnHoraFinNuevaPrac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hora de final." />
+
+            <EditText
+                android:id="@+id/edtHoraF_encNuevoPrac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="textPersonName"
+                android:shadowColor="@color/negro"
+                android:textColor="@color/negro"
+                android:textColorHighlight="@color/negro"
+                android:textColorHint="@color/negro"
+                android:textColorLink="@color/negro" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv"
