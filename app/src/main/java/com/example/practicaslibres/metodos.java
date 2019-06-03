@@ -28,8 +28,8 @@ public class metodos {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
-                String fechaSelec=dayOfMonth+"/"+(month+1)+"/"+year;
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-mm-yyyy");
+                String fechaSelec=dayOfMonth+"-"+(month+1)+"-"+year;
                 try {
                     Date date = formatter.parse(fechaSelec);
                     System.out.println(date);
@@ -70,12 +70,12 @@ public class metodos {
 
     public static  boolean  validarFechaDesde(EditText edtFecha) throws ParseException {
         int dia=0,mes=0, anio=0;
-        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
         final Calendar calendario= Calendar.getInstance();
         dia=calendario.get(Calendar.DAY_OF_MONTH);
         mes=calendario.get(Calendar.MONTH);
         anio=calendario.get(Calendar.YEAR);
-        String hoy = dia+"/"+(mes+1)+"/"+anio;
+        String hoy = dia+"-"+(mes+1)+"-"+anio;
         Date   hoy2   = format.parse(hoy);
         String desde  = edtFecha.getText().toString();
         Date   desde2 = format.parse(desde);
@@ -92,7 +92,7 @@ public class metodos {
 
         String desde=edtDesde.getText().toString();
         String hasta=edtHasta.getText().toString();
-        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
         Date desde2 = format.parse(desde);
         Date hasta2 = format.parse(hasta);
 
