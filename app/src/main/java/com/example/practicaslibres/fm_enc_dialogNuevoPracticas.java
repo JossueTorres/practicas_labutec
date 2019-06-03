@@ -18,7 +18,10 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class fm_enc_dialogNuevoPracticas extends DialogFragment {
 
@@ -115,6 +118,31 @@ public class fm_enc_dialogNuevoPracticas extends DialogFragment {
                             "COMO MINIMO",Toast.LENGTH_LONG).show();
                     return;
                 }
+
+
+                try {
+                    if (!metodos.validarFechaDesde(edtDesde)){
+                        edtDesde.setError("La fecha ya no es valida");
+                        edtDesde.requestFocus();
+                        //Toast.makeText(getContext(),"LA FECHA \"DESDE\" NO PUEDE SER ANTERIOR A LA DE ESTE DIA",Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    if (!metodos.validarFechaHasta(edtDesde,edtHasta)){
+                        edtHasta.setError("Esta fecha debe ser mayor o igual que la anterior");
+                        edtHasta.requestFocus();
+                        //Toast.makeText(getContext(),"LA FECHA \"HASTA\" NO PUEDE SER ANTERIOR A LA DE ESTE DIA",Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
                 Log.d(TAG, "Guardando...");
 
                 String valorEntrada = edtDesde.getText().toString();
