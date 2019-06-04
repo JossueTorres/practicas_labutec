@@ -32,7 +32,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -180,10 +182,22 @@ public class encProgramarPractica extends AppCompatActivity {
                 if(!valorEntrada.equals("")){
 
                     Log.d("api_login", addConfig_api);
-                    //logica aqui
+                    //logica aqui para guardar
 
+
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+                    Date d = new Date();
+                    String day = sdf.format(d);
+                    int cantLetras = day.length();
+
+                    String formatDay = day.substring(3,cantLetras);
+
+
+                    //Toast.makeText(getApplicationContext(), "dia" + formatDay , Toast.LENGTH_LONG).show();
                     new RequestAsync().execute();
 
+                    finish();
                 }
             }
         });
