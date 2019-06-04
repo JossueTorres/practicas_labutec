@@ -25,6 +25,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
+
+
+
     EditText edtUsuario, edtClave;
     private FirebaseAuth mAuth;
     private  DatabaseReference mDatabase;

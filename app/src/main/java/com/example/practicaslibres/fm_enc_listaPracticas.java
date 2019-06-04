@@ -1,5 +1,6 @@
 package com.example.practicaslibres;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -40,8 +41,11 @@ public class fm_enc_listaPracticas extends Fragment {
                 Log.d(TAG,"Mostrar Nuevo"); //log de fragment
 
                 //dialog a invocar
-                fm_enc_dialogNuevoPracticas dialog = new fm_enc_dialogNuevoPracticas();
-                dialog.show(getFragmentManager(), "dialogNuevoPrac");
+                //fm_enc_dialogNuevoPracticas dialog = new fm_enc_dialogNuevoPracticas();
+                //dialog.show(getFragmentManager(), "dialogNuevoPrac");
+
+                Intent i = new Intent(getContext(), encProgramarPractica.class);
+                startActivity(i);
             }
         });
 

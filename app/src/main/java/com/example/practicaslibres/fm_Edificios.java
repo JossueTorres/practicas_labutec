@@ -42,10 +42,11 @@ public class fm_Edificios extends Fragment {
     private static final String TAG ="Edificios"; //nombre de fragment
     int progreso=0;
 
-
+        String baseUrl_local = metodos.baseUrl;
+        String baseUrl_online = metodos.baseUrlOnline;
     //INICIO: URL APIS --------------------------
 
-        String listadoEdificios_api="http://104.248.185.225/practicaslab_utec/apis/admin/Edificio_api/listEdificios2";
+        String listadoEdificios_api= baseUrl_online+ "Edificio_api/listEdificios2";
 
     //FIN: URL APIS ------------------------------
 

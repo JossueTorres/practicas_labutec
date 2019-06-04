@@ -15,6 +15,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class metodos {
+    public static String baseUrl="http://localhost/web_practicaslab_utec/apis/admin/";
+    public static String baseUrlOnline="http://104.248.185.225/practicaslab_utec/apis/admin/";
 
     public static void fecha(final Context context, final EditText edt){
         int dia,mes, anio;

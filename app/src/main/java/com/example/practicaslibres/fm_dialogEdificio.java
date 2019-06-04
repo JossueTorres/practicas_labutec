@@ -16,12 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -41,7 +36,10 @@ public class fm_dialogEdificio extends DialogFragment {
 
     //INICIO: URL APIS --------------------------
 
-    String addEdificios_api="http://104.248.185.225/practicaslab_utec/apis/admin/Edificio_api/guardarDatos";
+    String baseUrl_online = metodos.baseUrlOnline.trim();
+    String getBaseUrl_local = metodos.baseUrl.trim();
+
+    String addEdificios_api= baseUrl_online+"Edificio_api/guardarDatos";
 
     //FIN: URL APIS ------------------------------
 
